@@ -9,7 +9,7 @@ import android.widget.Button;
 public class Acceptor extends AppCompatActivity {
     Button log_in,Sign_up;
     Double d1,d2;
-//testing
+//testing new
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
