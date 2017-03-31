@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Blood bank</string>
+    <string name="title_activity_main3">Main3Activity</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="connection_error_misconfigured" />
+    <string name="connection_error_internal" />
+    <string name="connection_error_invalid_account" />
+    <string name="connection_error_license_check_failed" />
+    <string name="connection_error_network" />
+    <string name="connection_error_needs_resolution" />
+    <string name="connection_error_disabled" />
+    <string name="connection_error_invalid" />
+    <string name="connection_error_missing" />
+    <string name="connection_error_outdated" />
+    <string name="connection_error_sign_in_required" />
+    <string name="connection_error_unknown" />
+</resources>

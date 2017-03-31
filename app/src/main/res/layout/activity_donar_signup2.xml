@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_donar_signup2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff0000"
+
+    tools:context="com.example.rajukumarsingh.bloodbank.Donar_signup2">
+
+
+    <TextView
+        android:id="@+id/textView58"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="SIGN UP"
+        android:textColor="#000000"
+        android:textSize="35dp"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/textView59"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@+id/textView58"
+        android:layout_centerHorizontal="true"
+        android:background="#ffffff"
+        android:text="FILL THESE HEALTH RELATED DETAILS"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/textView60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView59"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="21dp"
+        android:text="BLOOD GROUP"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="normal|bold" />
+
+    <EditText
+        android:id="@+id/editText28"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignTop="@+id/textView60"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_toEndOf="@+id/textView60"
+        android:layout_toRightOf="@+id/textView60"
+        android:background="#ffffff"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/textView61"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView60"
+        android:layout_alignStart="@+id/textView60"
+        android:layout_below="@+id/editText28"
+        android:layout_marginTop="15dp"
+        android:text="HEIGHT"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="normal|bold" />
+
+    <EditText
+        android:id="@+id/editText29"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignLeft="@+id/editText28"
+        android:layout_alignStart="@+id/editText28"
+        android:layout_alignTop="@+id/textView61"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="    CM"
+        android:inputType="number"
+        android:textColor="#000000"
+        android:textColorHint="#bbb"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/textView62"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView61"
+        android:layout_alignStart="@+id/textView61"
+        android:layout_below="@+id/editText29"
+        android:layout_marginTop="18dp"
+        android:text="WEIGHT"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="normal|bold" />
+
+    <EditText
+        android:id="@+id/editText30"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignLeft="@+id/editText29"
+        android:layout_alignStart="@+id/editText29"
+        android:layout_alignTop="@+id/textView62"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="     KG"
+        android:inputType="number"
+        android:textColor="#000000"
+        android:textColorHint="#bbb"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/textView63"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView62"
+        android:layout_alignStart="@+id/textView62"
+        android:layout_centerVertical="true"
+        android:text="LAST BLOOD DONATION"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="normal|bold" />
+
+    <EditText
+        android:id="@+id/editText31"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignEnd="@+id/textView63"
+        android:layout_alignRight="@+id/textView63"
+        android:layout_below="@+id/textView63"
+        android:background="#ffffff"
+        android:ems="10"
+        android:inputType="date"
+        android:textColor="#000000"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/textView63"
+
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_toEndOf="@+id/editText31"
+        android:layout_toRightOf="@+id/editText31"
+        android:elevation="20dp" />
+
+    <TextView
+        android:id="@+id/textView65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView63"
+        android:layout_alignStart="@+id/textView63"
+        android:layout_below="@+id/editText31"
+        android:layout_marginTop="11dp"
+        android:text="LAST PLATELET DONATION"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="normal|bold" />
+
+    <EditText
+        android:id="@+id/editText32"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignLeft="@+id/editText31"
+        android:layout_alignStart="@+id/editText31"
+        android:layout_below="@+id/textView65"
+        android:background="#ffffff"
+        android:ems="10"
+        android:inputType="date"
+        android:textColor="#000000"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignLeft="@+id/button14"
+        android:layout_alignStart="@+id/button14"
+        android:layout_below="@+id/textView65"
+        android:elevation="20dp" />
+
+    <TextView
+        android:id="@+id/textView66"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@+id/editText32"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:background="#ffffff"
+        android:text="I AM WILLING TO DONATE BLOOD WHEN REQUIRED"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:textStyle="normal|bold" />
+
+    <Button
+        android:id="@+id/button16"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/radiogroup"
+        android:layout_centerHorizontal="true"
+        android:background="#3E2723"
+        android:elevation="11dp"
+        android:text="NEXT"
+        android:textSize="25dp"
+        android:textStyle="normal|bold" />
+
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/textView66"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YES"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="normal|bold" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NO"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="normal|bold" />
+
+    </RadioGroup>
+</RelativeLayout>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_donar_sign_up"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.rajukumarsingh.bloodbank.Donor_signup"
+    android:background="#ff0000">
+
+    <TextView
+        android:text="SIGN UP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView5"
+        android:layout_marginTop="10dp"
+        android:textColor="#000000"
+        android:textSize="35dp"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="NAME"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="27dp"
+        android:layout_marginStart="27dp"
+        android:id="@+id/textView6"
+        android:textSize="25dp"
+        android:textStyle="normal|bold"
+        android:textColor="#000000"
+        android:layout_alignBaseline="@+id/editText3"
+        android:layout_alignBottom="@+id/editText3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="DOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText3"
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_marginTop="24dp"
+        android:id="@+id/textView9"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="normal|bold" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:inputType="date"
+        android:ems="10"
+        android:layout_alignTop="@+id/textView9"
+        android:layout_alignLeft="@+id/editText3"
+        android:layout_alignStart="@+id/editText3"
+        android:id="@+id/editText4"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:background="#ffffff" />
+
+    <TextView
+        android:text="ADDRESS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText4"
+        android:layout_alignLeft="@+id/textView9"
+        android:layout_alignStart="@+id/textView9"
+        android:layout_marginTop="19dp"
+        android:id="@+id/textView10"
+        android:textSize="25dp"
+        android:textStyle="normal|bold"
+        android:textColor="#000000" />
+
+    <Button
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:id="@+id/button10"
+        android:layout_alignTop="@+id/editText4"
+        android:layout_alignRight="@+id/editText4"
+        android:layout_alignEnd="@+id/editText4"
+        android:elevation="6dp" />
+
+    <EditText
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText3"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:background="#ffffff"
+        android:layout_height="35dp"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/textView5"
+        android:layout_toRightOf="@+id/textView10"
+        android:layout_toEndOf="@+id/textView10"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_alignTop="@+id/textView10"
+        android:layout_alignLeft="@+id/editText4"
+        android:layout_alignStart="@+id/editText4"
+        android:id="@+id/editText5"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:background="#ffffff" />
+
+    <TextView
+        android:text="CITY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText5"
+        android:layout_alignLeft="@+id/textView10"
+        android:layout_alignStart="@+id/textView10"
+        android:layout_marginTop="24dp"
+        android:id="@+id/textView11"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="normal|bold" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText6"
+        android:background="#ffffff"
+        android:layout_alignBottom="@+id/textView11"
+        android:layout_alignLeft="@+id/editText5"
+        android:layout_alignStart="@+id/editText5"
+        android:textSize="20dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:text="DISTRICT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView11"
+        android:layout_alignLeft="@+id/textView11"
+        android:layout_alignStart="@+id/textView11"
+        android:layout_marginTop="24dp"
+        android:id="@+id/textView12"
+        android:textSize="25dp"
+        android:textStyle="normal|bold"
+        android:textColor="#000000" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText7"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:background="#ffffff"
+        android:layout_alignBottom="@+id/textView12"
+        android:layout_alignLeft="@+id/editText6"
+        android:layout_alignStart="@+id/editText6" />
+
+    <TextView
+        android:text="STATE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView12"
+        android:layout_alignLeft="@+id/textView12"
+        android:layout_alignStart="@+id/textView12"
+        android:layout_marginTop="28dp"
+        android:id="@+id/textView15"
+        android:textStyle="normal|bold"
+        android:textSize="25dp"
+        android:textColor="#000000" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText8"
+        android:layout_alignBottom="@+id/textView15"
+        android:layout_alignLeft="@+id/editText7"
+        android:layout_alignStart="@+id/editText7"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:background="#ffffff" />
+
+    <TextView
+        android:text="PIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:id="@+id/textView57"
+        android:textSize="25dp"
+        android:textColor="#000000"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/textView15"
+        android:layout_alignLeft="@+id/textView15"
+        android:layout_alignStart="@+id/textView15" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText9"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:background="#ffffff"
+        android:layout_alignBottom="@+id/textView57"
+        android:layout_alignLeft="@+id/editText8"
+        android:layout_alignStart="@+id/editText8" />
+
+    <Button
+        android:text="NEXT"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button12"
+        android:layout_marginBottom="13dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:textStyle="normal|bold"
+        android:background="#3E2723" />
+
+</RelativeLayout>

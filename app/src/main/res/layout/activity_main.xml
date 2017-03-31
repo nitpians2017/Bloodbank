@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff0000"
+    tools:context="com.example.rajukumarsingh.bloodbank.MainActivity">
+
+
+
+
+    <ImageView
+        android:layout_marginTop="-60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:src="@drawable/givelife"
+        android:id="@+id/imageView"
+        android:background="#ff0000"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="false" />
+
+    <Button
+        android:text="DONOR"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000000"
+        android:background="#ffffff"
+        android:textSize="35dp"
+        android:textAlignment="gravity"
+        android:textStyle="bold"
+        android:id="@+id/donor" />
+
+    <Button
+        android:text="ACCEPTOR"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/donor"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000000"
+        android:background="#ffffff"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:textAlignment="gravity"
+        android:id="@+id/button6"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:text="BLOOD BANK"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:id="@+id/button7"
+        android:layout_below="@+id/button6"
+        android:textColor="#000000"
+        android:background="#ffffff"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:textAlignment="gravity"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="EMERGENCY"
+        android:layout_width="450dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23dp"
+        android:textColor="#ffffff"
+        android:background="#000000"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:textAlignment="gravity"
+        android:id="@+id/button8" />
+
+</RelativeLayout>

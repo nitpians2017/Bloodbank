@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_acceptor__sign__up"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff00"
+    tools:context="com.example.rajukumarsingh.bloodbank.Acceptor_SignUp">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/activity_acceptor_signup">
+
+        <TextView
+            android:text="SIGN UP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView74"
+            android:textColor="#000000"
+            android:textSize="35dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:text="ACCEPTOR NAME"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView75"
+            android:textStyle="normal|bold"
+            android:textSize="25dp"
+            android:textColor="#000000"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_below="@+id/textView74"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editText38"
+            android:layout_below="@+id/textView75"
+            android:layout_alignLeft="@+id/textView75"
+            android:layout_alignStart="@+id/textView75"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:background="#ffffff" />
+
+        <TextView
+            android:text="DATE OF BIRTH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:id="@+id/textView76"
+            android:textSize="25dp"
+            android:textStyle="normal|bold"
+            android:textColor="#000000"
+            android:layout_below="@+id/editText38"
+            android:layout_alignLeft="@+id/editText38"
+            android:layout_alignStart="@+id/editText38" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:inputType="date"
+            android:ems="10"
+            android:layout_below="@+id/textView76"
+            android:layout_alignLeft="@+id/textView76"
+            android:layout_alignStart="@+id/textView76"
+            android:id="@+id/editText39"
+            android:background="#ffffff"
+            android:textSize="20dp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:text="ADDRESS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText39"
+            android:layout_alignLeft="@+id/editText39"
+            android:layout_alignStart="@+id/editText39"
+            android:layout_marginTop="15dp"
+            android:id="@+id/textView77"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="normal|bold" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_below="@+id/textView77"
+            android:layout_alignLeft="@+id/textView77"
+            android:layout_alignStart="@+id/textView77"
+            android:id="@+id/editText40"
+            android:background="#ffffff"
+            android:textSize="20dp"
+            android:textStyle="normal|bold"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText40"
+            android:layout_alignLeft="@+id/editText40"
+            android:layout_alignStart="@+id/editText40"
+            android:layout_marginTop="14dp"
+            android:id="@+id/textView78"
+            android:textSize="25dp"
+            android:textStyle="normal|bold"
+            android:textColor="#000000"
+            android:text="CITY" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_below="@+id/textView78"
+            android:layout_alignLeft="@+id/textView78"
+            android:layout_alignStart="@+id/textView78"
+            android:id="@+id/editText41"
+            android:background="#ffffff"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:text="DISTRICT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText41"
+            android:layout_alignLeft="@+id/editText41"
+            android:layout_alignStart="@+id/editText41"
+            android:layout_marginTop="19dp"
+            android:id="@+id/textView79"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="normal|bold" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_below="@+id/textView79"
+            android:layout_alignLeft="@+id/textView79"
+            android:layout_alignStart="@+id/textView79"
+            android:id="@+id/editText42"
+            android:background="#ffffff"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:text="STATE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText42"
+            android:layout_alignLeft="@+id/editText42"
+            android:layout_alignStart="@+id/editText42"
+            android:layout_marginTop="19dp"
+            android:id="@+id/textView80"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="normal|bold" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_below="@+id/textView80"
+            android:layout_alignLeft="@+id/textView80"
+            android:layout_alignStart="@+id/textView80"
+            android:id="@+id/editText43"
+            android:background="#ffffff"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+
+        <TextView
+            android:text="PIN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText43"
+            android:layout_alignLeft="@+id/editText43"
+            android:layout_alignStart="@+id/editText43"
+            android:layout_marginTop="19dp"
+            android:id="@+id/textView81"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="normal|bold" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:inputType="number"
+            android:ems="10"
+            android:layout_below="@+id/textView81"
+            android:layout_alignLeft="@+id/textView81"
+            android:layout_alignStart="@+id/textView81"
+            android:id="@+id/editText44"
+            android:background="#ffffff"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:text="BLOOD GROUP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText44"
+            android:layout_alignLeft="@+id/editText44"
+            android:layout_alignStart="@+id/editText44"
+            android:layout_marginTop="19dp"
+            android:id="@+id/textView82"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="normal|bold" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_below="@+id/textView82"
+            android:layout_alignLeft="@+id/textView82"
+            android:layout_alignStart="@+id/textView82"
+            android:id="@+id/editText45"
+            android:background="#ffffff"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:text="PHONE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText45"
+            android:layout_alignLeft="@+id/editText45"
+            android:layout_alignStart="@+id/editText45"
+            android:layout_marginTop="19dp"
+            android:id="@+id/textView83"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="normal|bold" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:inputType="phone"
+            android:ems="10"
+            android:layout_below="@+id/textView83"
+            android:layout_alignLeft="@+id/textView83"
+            android:layout_alignStart="@+id/textView83"
+            android:id="@+id/editText46"
+            android:background="#ffffff"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:text="PHONE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText46"
+            android:layout_alignLeft="@+id/editText46"
+            android:layout_alignStart="@+id/editText46"
+            android:layout_marginTop="19dp"
+            android:id="@+id/textView84"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="normal|bold" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:inputType="phone"
+            android:ems="10"
+            android:layout_below="@+id/textView84"
+            android:layout_alignLeft="@+id/textView84"
+            android:layout_alignStart="@+id/textView84"
+            android:id="@+id/editText47"
+            android:background="#ffffff"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:text="EMAIL ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText47"
+            android:layout_alignLeft="@+id/editText47"
+            android:layout_alignStart="@+id/editText47"
+            android:layout_marginTop="19dp"
+            android:id="@+id/textView85"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="normal|bold" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:layout_below="@+id/textView85"
+            android:layout_alignLeft="@+id/textView85"
+            android:layout_alignStart="@+id/textView85"
+            android:id="@+id/editText48"
+            android:background="#ffffff"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:text="PASSWORD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText48"
+            android:layout_alignLeft="@+id/editText48"
+            android:layout_alignStart="@+id/editText48"
+            android:layout_marginTop="19dp"
+            android:id="@+id/textView86"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:textStyle="normal|bold" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:layout_below="@+id/textView86"
+            android:layout_alignLeft="@+id/textView86"
+            android:layout_alignStart="@+id/textView86"
+            android:id="@+id/editText49"
+            android:background="#ffffff"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <Button
+            android:text="SUBMIT"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/editText49"
+            android:layout_alignLeft="@+id/editText49"
+            android:layout_alignStart="@+id/editText49"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:elevation="20dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/button18"
+            android:background="#3E2723"/>
+    </RelativeLayout>
+</ScrollView>
