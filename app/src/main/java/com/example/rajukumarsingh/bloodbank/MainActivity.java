@@ -126,6 +126,16 @@ public class MainActivity extends AppCompatActivity {
                     Intent i =new Intent(MainActivity.this,Bloodbank_list.class);
                     i.putExtra("Latitude",d1);
                     i.putExtra("Longitude",d2);
+
+                    String s3 = Double.toString(d1);
+                    String s4 = Double.toString(d2);
+
+                    SharedPreferences mPrefs = getSharedPreferences("IDvalue", 0);
+                    SharedPreferences.Editor editor = mPrefs.edit();
+                    editor.putString("lo", s3);
+                    editor.putString("la", s4);
+
+                    editor.commit();
                     startActivity(i);
                 } else{
                     Toast.makeText(MainActivity.this,R.string.LocationError,Toast.LENGTH_SHORT).show();

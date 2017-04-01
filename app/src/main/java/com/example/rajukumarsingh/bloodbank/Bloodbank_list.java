@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -39,13 +41,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
+import java.util.Locale;
 
 public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     ListView listView;
     String[] lati, longi, h_name, state, add, pincode, contact, city, AP, AN, ABP, ABN, BP, BN, OP, ON, lati1, longi1, h_name1, state1, add1, pincode1, contact1, city1, AP1, AN1, ABP1, ABN1, BP1, BN1, OP1, ON1;
     GetAllData get;
-    Double d1, d2, d3, d4;
+    Double d1, d2, d3, d4, d6, d7;
     JSONObject jsonObject;
     JSONArray jsonArray;
     String[] dist;
@@ -53,9 +57,12 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
     Spinner spinner;
     Button search;
     EditText city2;
-    String str[]={"2","3","5","10","15","20"};
-    int k=0;
+    String str[] = {"2", "3", "5", "10", "15", "20"};
+    int k = 0;
+    boolean flag = true;
     String url = Constants.GPS_FETCH;
+    StringBuilder sb = new StringBuilder();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +72,19 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
         Bundle bundle = getIntent().getExtras();
         d1 = bundle.getDouble("Latitude");
         d2 = bundle.getDouble("Longitude");
+
+        Geocoder geocoder = new Geocoder(Bloodbank_list.this, Locale.ENGLISH);
+        try {
+            List<Address> myadd = geocoder.getFromLocation(d1, d2, 10);
+            Address address = myadd.get(0);
+
+            for (int i = 0; i < address.getMaxAddressLineIndex(); i++) {
+                sb.append(address.getAddressLine(i));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         String s = Double.toString(d1);
         String s1 = Double.toString(d2);
@@ -89,6 +109,7 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
 
                 Intent i = new Intent(Bloodbank_list.this, MapsActivity.class);
                 Double a, b;
+
                 a = Double.parseDouble(lati1[position]);
                 b = Double.parseDouble(longi1[position]);
                 i.putExtra("Latitude1", a);
@@ -113,29 +134,33 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
             @Override
             public void onClick(View view) {
                 String City = city2.getText().toString();
-                if (City.equals("Mumbai") == true || City.equals("mumbai") == true) {
-                    d1 = 19.025116;
-                    d2 = 72.850411;
+                if ("Mumbai".equalsIgnoreCase(City)) {
+                    d6 = 19.025116;
+                    d7 = 72.850411;
+                    flag = false;
                     k = 0;
                     getJSON();
-                } else if (City.equals("Pune") == true || City.equals("pune") == true) {
-                    d1 = 18.515429;
-                    d2 = 73.856326;
+                } else if ("Pune".equalsIgnoreCase(City)) {
+                    d6 = 18.515429;
+                    d7 = 73.856326;
+                    flag = false;
                     k = 0;
                     getJSON();
-                } else if (City.equals("Patna") == true || City.equals("patna") == true) {
-                    d1 = 25.616476;
-                    d2 = 85.142010;
+                } else if ("Patna".equalsIgnoreCase(City)) {
+                    d6 = 25.616476;
+                    d7 = 85.142010;
                     k = 0;
                     getJSON();
-                } else if (City.equals("kanpur") == true || City.equals("Kanpur") == true) {
-                    d1 = 26.462973;
-                    d2 = 80.322834;
+                } else if ("Kanpur".equalsIgnoreCase(City)) {
+                    d6 = 26.462973;
+                    d7 = 80.322834;
+                    flag = false;
                     k = 0;
                     getJSON();
-                } else if (City.equals("Dhanbad") == true || City.equals("dhanbad") == true) {
-                    d1 = 23.814601;
-                    d2 = 86.441113;
+                } else if ("Dhanbad".equalsIgnoreCase(City)) {
+                    d6 = 23.814601;
+                    d7 = 86.441113;
+                    flag = false;
                     k = 0;
                     getJSON();
                 } else {
@@ -144,10 +169,10 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-        ((Button)findViewById(R.id.contactDonor)).setOnClickListener(new View.OnClickListener() {
+        ((Button) findViewById(R.id.contactDonor)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences mPrefs = getSharedPreferences("IDvalue",0);
+                SharedPreferences mPrefs = getSharedPreferences("IDvalue", 0);
                 final String str = mPrefs.getString("k", "");
 
                 new AlertDialog.Builder(Bloodbank_list.this).setTitle("Send SMS")
@@ -155,8 +180,8 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
                         .setPositiveButton("YES", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                if(str == null || str.length() <10){
-                                    AlertDialog alertDialog =  new AlertDialog.Builder(Bloodbank_list.this).create();
+                                if (str == null || str.length() < 10) {
+                                    AlertDialog alertDialog = new AlertDialog.Builder(Bloodbank_list.this).create();
                                     final EditText input = new EditText(Bloodbank_list.this);
                                     input.setHint("Your Mobile Number");
                                     LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
@@ -168,15 +193,15 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
                                         public void onClick(DialogInterface dialog, int whichButton) {
                                             String number = input.getText().toString();
                                             SmsManager smsManager = SmsManager.getDefault();
-                                            smsManager.sendTextMessage(number, null, "HELP!!", null, null);
+                                            smsManager.sendTextMessage(number, null, "HELP!! I'm at address : " + sb, null, null);
                                         }
                                     });
                                     alertDialog.show();
 
 
-                                }else {
+                                } else {
                                     SmsManager smsManager = SmsManager.getDefault();
-                                    smsManager.sendTextMessage(str, null, "HELP!!", null, null);
+                                    smsManager.sendTextMessage(str, null, "HELP!!" + sb, null, null);
                                 }
                             }
                         })
@@ -316,7 +341,7 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
             protected Void doInBackground(Void... params) {
                 try {
                     get.getAllData();
-                }catch(Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 return null;
@@ -349,6 +374,7 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
 
     private void calculate() {
         float[] result = new float[2];
+        float[] result1 = new float[2];
         dist = new String[jsonArray.length()];
         h_name1 = new String[jsonArray.length()];
         state1 = new String[jsonArray.length()];
@@ -368,31 +394,60 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
         ON1 = new String[jsonArray.length()];
 
         for (int i = 0; i < jsonArray.length(); i++) {
-            d3 = Double.parseDouble(lati[i]);
-            d4 = Double.parseDouble(longi[i]);
-            Location.distanceBetween(d1, d2, d3, d4, result);
-            if (result[0] <= (n * 1000)) {
-                dist[k] = Float.toString(result[0]);
-                lati1[k] = lati[i];
-                longi1[k] = longi[i];
-                h_name1[k] = h_name[i];
-                state1[k] = state[i];
-                add1[k] = add[i];
-                pincode1[k] = pincode[i];
-                contact1[k] = contact[i];
-                city1[k] = city[i];
-                AP1[k] = AP[i];
-                AN1[k] = AN[i];
-                ABP1[k] = ABP[i];
-                ABN1[k] = ABN[i];
-                BP1[k] = BP[i];
-                BN1[k] = BN[i];
-                OP1[k] = OP[i];
-                ON1[k] = ON[i];
-                k++;
+            if (flag) {
+                d3 = Double.parseDouble(lati[i]);
+                d4 = Double.parseDouble(longi[i]);
+                Location.distanceBetween(d1, d2, d3, d4, result);
+                if (result[0] <= (n * 1000)) {
+                    dist[k] = Float.toString(result[0]);
+                    lati1[k] = lati[i];
+                    longi1[k] = longi[i];
+                    h_name1[k] = h_name[i];
+                    state1[k] = state[i];
+                    add1[k] = add[i];
+                    pincode1[k] = pincode[i];
+                    contact1[k] = contact[i];
+                    city1[k] = city[i];
+                    AP1[k] = AP[i];
+                    AN1[k] = AN[i];
+                    ABP1[k] = ABP[i];
+                    ABN1[k] = ABN[i];
+                    BP1[k] = BP[i];
+                    BN1[k] = BN[i];
+                    OP1[k] = OP[i];
+                    ON1[k] = ON[i];
+                    k++;
+                }
+            } else {
+
+                d3 = Double.parseDouble(lati[i]);
+                d4 = Double.parseDouble(longi[i]);
+                Location.distanceBetween(d6, d7, d3, d4, result);
+                Location.distanceBetween(d6, d7, d1, d2, result1);
+                if (result[0] <= (n * 1000)) {
+                    dist[k] = Float.toString(result[0] + result1[0]);
+                    lati1[k] = lati[i];
+                    longi1[k] = longi[i];
+                    h_name1[k] = h_name[i];
+                    state1[k] = state[i];
+                    add1[k] = add[i];
+                    pincode1[k] = pincode[i];
+                    contact1[k] = contact[i];
+                    city1[k] = city[i];
+                    AP1[k] = AP[i];
+                    AN1[k] = AN[i];
+                    ABP1[k] = ABP[i];
+                    ABN1[k] = ABN[i];
+                    BP1[k] = BP[i];
+                    BN1[k] = BN[i];
+                    OP1[k] = OP[i];
+                    ON1[k] = ON[i];
+                    k++;
+                }
             }
         }
     }
+
 
     public class Custom extends BaseAdapter {
 

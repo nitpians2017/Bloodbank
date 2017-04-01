@@ -57,8 +57,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-
-        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
         Bundle bundle = getIntent().getExtras();
         d1 = bundle.getDouble("Latitude1");
         d2 = bundle.getDouble("Longitude1");
