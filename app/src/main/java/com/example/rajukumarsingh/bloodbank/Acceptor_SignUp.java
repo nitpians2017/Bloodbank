@@ -73,10 +73,12 @@ public class Acceptor_SignUp extends AppCompatActivity {
 
                 if (validateEmail(Email) == true && validatephone(Phone) == true && validatepin(Pin) == true &&
                         validatemergency1(Emergency_contact) == true && validatepassword(Password) == true) {
+
+                    Toast.makeText(Acceptor_SignUp.this, getResources().getString(R.string.SignUpSuccess), Toast.LENGTH_SHORT).show();
+
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String s) {
-                            Toast.makeText(Acceptor_SignUp.this, "" + Name, Toast.LENGTH_SHORT).show();
 
                         }
                     }, new Response.ErrorListener() {
@@ -107,7 +109,7 @@ public class Acceptor_SignUp extends AppCompatActivity {
                     requestQueue.add(stringRequest);
                 }
                 else {
-                    Toast.makeText(Acceptor_SignUp.this, "you have entered somethng wrong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Acceptor_SignUp.this, getResources().getString(R.string.SignUperror), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -121,6 +123,8 @@ public class Acceptor_SignUp extends AppCompatActivity {
         if (EMAIL_PATTERN.matcher(email).matches()) {
             retval=true;
         }
+        else
+            Toast.makeText(this, R.string.EmailValidationError, Toast.LENGTH_SHORT).show();
         return retval;
     }
     boolean validatephone(String phone)
@@ -130,6 +134,8 @@ public class Acceptor_SignUp extends AppCompatActivity {
         {
             retval =true;
         }
+        else
+            Toast.makeText(this, R.string.PhoneValidationError, Toast.LENGTH_SHORT).show();
         return retval;
     }
 
@@ -140,6 +146,8 @@ public class Acceptor_SignUp extends AppCompatActivity {
         {
             retval =true;
         }
+        else
+            Toast.makeText(this, R.string.PhoneValidationError, Toast.LENGTH_SHORT).show();
         return  retval;
     }
     boolean validatepin(String pin)
@@ -149,6 +157,8 @@ public class Acceptor_SignUp extends AppCompatActivity {
         {
             retval =true;
         }
+        else
+            Toast.makeText(this, R.string.PincodeValidationError, Toast.LENGTH_SHORT).show();
         return  retval;
     }
     boolean validatepassword(String password1)
@@ -158,6 +168,8 @@ public class Acceptor_SignUp extends AppCompatActivity {
         {
             retval =true;
         }
+        else
+            Toast.makeText(this, R.string.PasswordValidationError, Toast.LENGTH_SHORT).show();
         return  retval;
     }
 }

@@ -21,9 +21,9 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 public class Donor_signup extends AppCompatActivity {
-EditText name,dob,address,city,district,state,pin;
-    String Name,Dob,Address,City,District,State,Pin;
-    Button date,next;
+    EditText name, dob, address, city, district, state, pin;
+    String Name, Dob, Address, City, District, State, Pin;
+    Button date, next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +31,15 @@ EditText name,dob,address,city,district,state,pin;
         setContentView(R.layout.activity_main5);
 
 
-        name= (EditText) findViewById(R.id.editText3);
-        dob= (EditText) findViewById(R.id.editText4);
-        address= (EditText) findViewById(R.id.editText5);
-        city= (EditText) findViewById(R.id.editText6);
-        district= (EditText) findViewById(R.id.editText7);
-        state= (EditText) findViewById(R.id.editText8);
-        pin= (EditText) findViewById(R.id.editText9);
-        date= (Button) findViewById(R.id.button10);
-        next= (Button) findViewById(R.id.button12);
+        name = (EditText) findViewById(R.id.editText3);
+        dob = (EditText) findViewById(R.id.editText4);
+        address = (EditText) findViewById(R.id.editText5);
+        city = (EditText) findViewById(R.id.editText6);
+        district = (EditText) findViewById(R.id.editText7);
+        state = (EditText) findViewById(R.id.editText8);
+        pin = (EditText) findViewById(R.id.editText9);
+        date = (Button) findViewById(R.id.button10);
+        next = (Button) findViewById(R.id.button12);
 
 
         date.setOnClickListener(new View.OnClickListener() {
@@ -50,26 +50,25 @@ EditText name,dob,address,city,district,state,pin;
         });
 
 
-
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Name=name.getText().toString();
-                Dob=dob.getText().toString();
-                Address=address.getText().toString();
-                City=city.getText().toString();
-                District=district.getText().toString();
-                State=state.getText().toString();
-                Pin=pin.getText().toString();
+                Name = name.getText().toString();
+                Dob = dob.getText().toString();
+                Address = address.getText().toString();
+                City = city.getText().toString();
+                District = district.getText().toString();
+                State = state.getText().toString();
+                Pin = pin.getText().toString();
 
-                Intent intent=new Intent(Donor_signup.this,Donar_signup2.class);
-                intent.putExtra("Name",Name);
-                intent.putExtra("Dob",Dob);
-                intent.putExtra("Address",Address);
-                intent.putExtra("City",City);
-                intent.putExtra("District",District);
-                intent.putExtra("State",State);
-                intent.putExtra("Pin",Pin);
+                Intent intent = new Intent(Donor_signup.this, Donar_signup2.class);
+                intent.putExtra("Name", Name);
+                intent.putExtra("Dob", Dob);
+                intent.putExtra("Address", Address);
+                intent.putExtra("City", City);
+                intent.putExtra("District", District);
+                intent.putExtra("State", State);
+                intent.putExtra("Pin", Pin);
                 startActivity(intent);
             }
         });

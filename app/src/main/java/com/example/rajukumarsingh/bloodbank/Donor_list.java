@@ -36,7 +36,8 @@ public class Donor_list extends AppCompatActivity {
     String data;
     JSONArray jsonArray;
     JSONObject jsonObject;
-    String[] name,blood_group,address,contact;
+    String[] name, blood_group, address, contact;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +55,7 @@ public class Donor_list extends AppCompatActivity {
         address = new String[jsonArray.length()];
         contact = new String[jsonArray.length()];
 
-        for (int i=0;i<jsonArray.length();i++){
+        for (int i = 0; i < jsonArray.length(); i++) {
             try {
                 jsonObject = jsonArray.getJSONObject(i);
                 name[i] = jsonObject.getString("Name");
@@ -71,7 +72,8 @@ public class Donor_list extends AppCompatActivity {
         MyCustom myCustom = new MyCustom();
         listView.setAdapter(myCustom);
     }
-    public class MyCustom extends BaseAdapter{
+
+    public class MyCustom extends BaseAdapter {
 
         @Override
         public int getCount() {
@@ -91,7 +93,7 @@ public class Donor_list extends AppCompatActivity {
         @Override
         public View getView(final int position, View converVview, ViewGroup parent) {
             View v = getLayoutInflater().inflate(R.layout.custom_layout2, parent, false);
-            TextView t1, t2,t3;
+            TextView t1, t2, t3;
             ImageView imageView;
 
             t1 = (TextView) v.findViewById(R.id.textView56);
@@ -105,7 +107,7 @@ public class Donor_list extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     SmsManager smsManager = SmsManager.getDefault();
-                    smsManager.sendTextMessage(contact[position],null,"HELP!!",null,null);
+                    smsManager.sendTextMessage(contact[position], null, getResources().getString(R.string.Message), null, null);
                 }
             });
             return v;

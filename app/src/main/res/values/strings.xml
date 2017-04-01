@@ -14,4 +14,24 @@
     <string name="connection_error_outdated" />
     <string name="connection_error_sign_in_required" />
     <string name="connection_error_unknown" />
+    <string name="LoginError">Wrong Username or Password.</string>
+    <string name="Loginsuccess">Login Successful!</string>
+    <string name="SignUperror">You have entered something wrong</string>
+    <string name="SignUpSuccess">Sign Up Successful!</string>
+    <string name="EmailValidationError">Invalid Email</string>
+    <string name="PhoneValidationError">Invalid Phone Number</string>
+    <string name="PincodeValidationError">Invalid Pincode</string>
+    <string name="PasswordValidationError">Invalid Password</string>
+    <string name="Heading">BLOOD BANK DETAILS</string>
+    <string name="CityError">City is not avilable</string>
+    <string name="Fetching">Fetching Data</string>
+    <string name="Wait">Please Wait...</string>
+    <string name="downloading">Downloading...</string>
+    <string name="NO">NO</string>
+    <string name="YES">YES</string>
+    <string name="Message">HELP!!</string>
+    <string name="InternetError">No internet connection</string>
+    <string name="SendSMS">Send SMS</string>
+    <string name="SendEmergency">Sendig SMS to emergency contact</string>
+    <string name="LocationError">Unable to fetch your location. Please try again..</string>
 </resources>

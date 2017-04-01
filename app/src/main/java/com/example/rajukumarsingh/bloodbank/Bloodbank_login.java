@@ -55,13 +55,13 @@ public class Bloodbank_login extends AppCompatActivity {
                             }
                         }
                         if(f==1) {
-                            Toast.makeText(Bloodbank_login.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Bloodbank_login.this, R.string.Loginsuccess, Toast.LENGTH_SHORT).show();
 //                            Intent intent=new Intent(Bloodbank_login.this,Bloodbank_list.class);
 //
 //                            startActivity(intent);
                         }
                         else
-                            Toast.makeText(Bloodbank_login.this, "Wrong Username or Password.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Bloodbank_login.this, R.string.LoginError, Toast.LENGTH_SHORT).show();
                     }
                 }, new Response.ErrorListener() {
                     @Override

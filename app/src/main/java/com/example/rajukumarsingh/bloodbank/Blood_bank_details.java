@@ -49,7 +49,7 @@ public class Blood_bank_details extends AppCompatActivity {
         BN = bundle.getString("BN");
         OP = bundle.getString("OP");
         ON = bundle.getString("ON");
-        String heading = "BLOOD BANK DETAILS";
+        String heading = getResources().getString(R.string.Heading);
 
         SpannableString content = new SpannableString(heading);
         content.setSpan(new UnderlineSpan(),0,heading.length(),0);

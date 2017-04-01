@@ -23,48 +23,48 @@ import static android.R.attr.name;
 
 public class Bloodbank_sign_up extends AppCompatActivity {
     Button signup;
-    EditText blood_bank_name,reg_no,address,city,district,state,pin_code ,contact,email;
-    String Blood_Bank_Name,Reg_No,Address,City,District,State,Pin_Code,Contact,Email;
+    EditText blood_bank_name, reg_no, address, city, district, state, pin_code, contact, email;
+    String Blood_Bank_Name, Reg_No, Address, City, District, State, Pin_Code, Contact, Email;
     RequestQueue requestQueue;
-    String url="http://rahulraj47.coolpage.biz/blood_bank.php";
+    String url = "http://rahulraj47.coolpage.biz/blood_bank.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bloodbank_sign_up);
 
-        blood_bank_name= (EditText) findViewById(R.id.editText10);
-        reg_no= (EditText) findViewById(R.id.editText12);
-        address= (EditText) findViewById(R.id.editText13);
-        city= (EditText) findViewById(R.id.editText14);
-        district= (EditText) findViewById(R.id.editText15);
-        state= (EditText) findViewById(R.id.editText16);
-        pin_code= (EditText) findViewById(R.id.editText17);
-        contact= (EditText) findViewById(R.id.editText18);
-        email= (EditText) findViewById(R.id.editText19);
-        signup= (Button) findViewById(R.id.signup);
-        requestQueue= Volley.newRequestQueue(this);
+        blood_bank_name = (EditText) findViewById(R.id.editText10);
+        reg_no = (EditText) findViewById(R.id.editText12);
+        address = (EditText) findViewById(R.id.editText13);
+        city = (EditText) findViewById(R.id.editText14);
+        district = (EditText) findViewById(R.id.editText15);
+        state = (EditText) findViewById(R.id.editText16);
+        pin_code = (EditText) findViewById(R.id.editText17);
+        contact = (EditText) findViewById(R.id.editText18);
+        email = (EditText) findViewById(R.id.editText19);
+        signup = (Button) findViewById(R.id.signup);
+        requestQueue = Volley.newRequestQueue(this);
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Blood_Bank_Name=blood_bank_name.getText().toString();
-                Reg_No=reg_no.getText().toString();
-                Address=address.getText().toString();
-                City=city.getText().toString();
-                District=district.getText().toString();
-                State=state.getText().toString();
-                Pin_Code=pin_code.getText().toString();
-                Contact=contact.getText().toString();
-                Email=email.getText().toString();
+                Blood_Bank_Name = blood_bank_name.getText().toString();
+                Reg_No = reg_no.getText().toString();
+                Address = address.getText().toString();
+                City = city.getText().toString();
+                District = district.getText().toString();
+                State = state.getText().toString();
+                Pin_Code = pin_code.getText().toString();
+                Contact = contact.getText().toString();
+                Email = email.getText().toString();
 
 
-                if (validateEmail(Email)==true && validatephone(Contact)==true) {
+                if (validateEmail(Email) == true && validatephone(Contact) == true) {
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String s) {
-                            Toast.makeText(Bloodbank_sign_up.this, "" +Blood_Bank_Name, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Bloodbank_sign_up.this, "" + Blood_Bank_Name, Toast.LENGTH_SHORT).show();
 
                         }
                     }, new Response.ErrorListener() {
@@ -90,9 +90,7 @@ public class Bloodbank_sign_up extends AppCompatActivity {
                         }
                     };
                     requestQueue.add(stringRequest);
-                }
-                else
-                {
+                } else {
 
                 }
 
@@ -100,30 +98,28 @@ public class Bloodbank_sign_up extends AppCompatActivity {
         });
     }
 
-    boolean validateEmail(String email){
-        boolean retval=false;
+    boolean validateEmail(String email) {
+        boolean retval = false;
         Pattern EMAIL_PATTERN = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", Pattern.CASE_INSENSITIVE);
         if (EMAIL_PATTERN.matcher(email).matches()) {
-            retval=true;
+            retval = true;
         }
         return retval;
     }
-    boolean validatephone(String phone)
-    {
-        boolean retval=false;
-        if (phone.length() == 10)
-        {
-            retval =true;
+
+    boolean validatephone(String phone) {
+        boolean retval = false;
+        if (phone.length() == 10) {
+            retval = true;
         }
         return retval;
     }
-    boolean validatepin(String pin)
-    {
-        boolean retval=false;
-        if (pin.length() == 6)
-        {
-            retval =true;
+
+    boolean validatepin(String pin) {
+        boolean retval = false;
+        if (pin.length() == 6) {
+            retval = true;
         }
-        return  retval;
+        return retval;
     }
 }

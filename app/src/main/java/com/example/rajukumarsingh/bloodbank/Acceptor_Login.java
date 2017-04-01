@@ -91,14 +91,14 @@ public class Acceptor_Login extends AppCompatActivity {
                             }
                         }
                         if (f == 1) {
-                            Toast.makeText(Acceptor_Login.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Acceptor_Login.this, getResources().getString(R.string.Loginsuccess), Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Acceptor_Login.this, Acceptor_2.class);
                             intent.putExtra("Latitude", d1);
                             intent.putExtra("Longitude", d2);
                             intent.putExtra("JSON",data);
                             startActivity(intent);
                         } else
-                            Toast.makeText(Acceptor_Login.this, "Wrong Username or Password.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Acceptor_Login.this, getResources().getString(R.string.LoginError), Toast.LENGTH_SHORT).show();
                     }
                 }, new Response.ErrorListener() {
                     @Override

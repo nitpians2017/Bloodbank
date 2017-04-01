@@ -21,11 +21,11 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 public class Donar_signup3 extends AppCompatActivity {
-    EditText phone,emergency_contact1,emergency_contact2,email,password;
-    String Blood_group,Height,Weight,Last_blood_donation,Will_of_donor,Last_platelete_donation,Name,Dob,Address,City,District,State,Pin,Phone,Emergency_contact1,Emergency_contact2,Email,Password;
+    EditText phone, emergency_contact1, emergency_contact2, email, password;
+    String Blood_group, Height, Weight, Last_blood_donation, Will_of_donor, Last_platelete_donation, Name, Dob, Address, City, District, State, Pin, Phone, Emergency_contact1, Emergency_contact2, Email, Password;
     RequestQueue requestQueue;
     Button submit;
-    String url="http://rahulraj47.coolpage.biz/donor1.php";
+    String url = "http://rahulraj47.coolpage.biz/donor1.php";
     SharedPreferences sp;
 
 
@@ -33,46 +33,44 @@ public class Donar_signup3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donar_signup3);
-        phone= (EditText) findViewById(R.id.editText33);
-        emergency_contact1= (EditText) findViewById(R.id.editText34);
-        emergency_contact2= (EditText) findViewById(R.id.editText35);
-        email= (EditText) findViewById(R.id.editText36);
-        password= (EditText) findViewById(R.id.editText37);
-        submit= (Button) findViewById(R.id.button17);
-        requestQueue= Volley.newRequestQueue(this);
+        phone = (EditText) findViewById(R.id.editText33);
+        emergency_contact1 = (EditText) findViewById(R.id.editText34);
+        emergency_contact2 = (EditText) findViewById(R.id.editText35);
+        email = (EditText) findViewById(R.id.editText36);
+        password = (EditText) findViewById(R.id.editText37);
+        submit = (Button) findViewById(R.id.button17);
+        requestQueue = Volley.newRequestQueue(this);
 
 
-        Bundle bundle=getIntent().getExtras();
-        Name=bundle.getString("Name");
-        Dob=bundle.getString("Dob");
-        Will_of_donor=bundle.getString("Will_of_donor");
-        Address=bundle.getString("Address");
-        City=bundle.getString("City");
-        District=bundle.getString("District");
-        State=bundle.getString("State");
-        Pin=bundle.getString("Pin");
-        Blood_group=bundle.getString("Blood_group");
-        Height=bundle.getString("Height");
-        Weight=bundle.getString("Weight");
-        Last_blood_donation=bundle.getString("Last_blood_donation");
-        Last_platelete_donation=bundle.getString("Last_platelete_donation");
+        Bundle bundle = getIntent().getExtras();
+        Name = bundle.getString("Name");
+        Dob = bundle.getString("Dob");
+        Will_of_donor = bundle.getString("Will_of_donor");
+        Address = bundle.getString("Address");
+        City = bundle.getString("City");
+        District = bundle.getString("District");
+        State = bundle.getString("State");
+        Pin = bundle.getString("Pin");
+        Blood_group = bundle.getString("Blood_group");
+        Height = bundle.getString("Height");
+        Weight = bundle.getString("Weight");
+        Last_blood_donation = bundle.getString("Last_blood_donation");
+        Last_platelete_donation = bundle.getString("Last_platelete_donation");
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Phone=phone.getText().toString();
-                Emergency_contact1=emergency_contact1.getText().toString();
-                Emergency_contact2=emergency_contact2.getText().toString();
-                Email=email.getText().toString();
-                Password=password.getText().toString();
+                Phone = phone.getText().toString();
+                Emergency_contact1 = emergency_contact1.getText().toString();
+                Emergency_contact2 = emergency_contact2.getText().toString();
+                Email = email.getText().toString();
+                Password = password.getText().toString();
 
+                if (validateEmail(Email) == true && validatephone(Phone) == true && validatepin(Pin) == true &&
+                        validatemergency(Emergency_contact1) == true && validatemergency1(Emergency_contact2) == true && validatepassword(Password) == true) {
 
+                    Toast.makeText(Donar_signup3.this, R.string.SignUpSuccess, Toast.LENGTH_SHORT).show();
 
-
-
-
-                if (validateEmail(Email)==true && validatephone(Phone)==true && validatepin(Pin)==true &&
-                        validatemergency(Emergency_contact1)==true && validatemergency1(Emergency_contact2)==true && validatepassword(Password)==true) {
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String s) {
@@ -105,73 +103,77 @@ public class Donar_signup3 extends AppCompatActivity {
                             params.put("Emergency_contact2", Emergency_contact2);
                             params.put("Email", Email);
                             params.put("Password", Password);
-                            params.put("Will_of_donor",Will_of_donor);
+                            params.put("Will_of_donor", Will_of_donor);
                             return params;
                         }
                     };
                     requestQueue.add(stringRequest);
-                }
-                else
-                {
-                    Toast.makeText(Donar_signup3.this, "you have entered something wrong", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(Donar_signup3.this, R.string.SignUperror, Toast.LENGTH_SHORT).show();
                 }
             }
 
         });
     }
 
-    boolean validateEmail(String email){
-        boolean retval=false;
+    boolean validateEmail(String email) {
+        boolean retval = false;
         Pattern EMAIL_PATTERN = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", Pattern.CASE_INSENSITIVE);
         if (EMAIL_PATTERN.matcher(email).matches()) {
-            retval=true;
+            retval = true;
         }
-        return retval;
-    }
-    boolean validatephone(String phone)
-    {
-        boolean retval=false;
-        if (phone.length() == 10)
-        {
-            retval =true;
-        }
+        else
+            Toast.makeText(this, R.string.EmailValidationError, Toast.LENGTH_SHORT).show();
         return retval;
     }
 
-    boolean validatemergency(String emergencycontact)
-    {
-        boolean retval=false;
-        if (emergencycontact.length() == 10)
-        {
-            retval =true;
+    boolean validatephone(String phone) {
+        boolean retval = false;
+        if (phone.length() == 10) {
+            retval = true;
         }
-        return  retval;
+        else
+            Toast.makeText(this, R.string.PhoneValidationError, Toast.LENGTH_SHORT).show();
+        return retval;
     }
-    boolean validatemergency1(String emergencycontact1)
-    {
-        boolean retval=false;
-        if (emergencycontact1.length() == 10)
-        {
-            retval =true;
+
+    boolean validatemergency(String emergencycontact) {
+        boolean retval = false;
+        if (emergencycontact.length() == 10) {
+            retval = true;
         }
-        return  retval;
+        else
+            Toast.makeText(this, R.string.PhoneValidationError, Toast.LENGTH_SHORT).show();
+        return retval;
     }
-    boolean validatepin(String pin)
-    {
-        boolean retval=false;
-        if (pin.length() == 6)
-        {
-            retval =true;
+
+    boolean validatemergency1(String emergencycontact1) {
+        boolean retval = false;
+        if (emergencycontact1.length() == 10) {
+            retval = true;
         }
-        return  retval;
+        else
+            Toast.makeText(this, R.string.PhoneValidationError, Toast.LENGTH_SHORT).show();
+        return retval;
     }
-    boolean validatepassword(String password1)
-    {
-        boolean retval=false;
-        if (password1.length()<=25&&password1.length()>=8)
-        {
-            retval =true;
+
+    boolean validatepin(String pin) {
+        boolean retval = false;
+        if (pin.length() == 6) {
+            retval = true;
         }
-        return  retval;
+        else
+            Toast.makeText(this, R.string.PincodeValidationError, Toast.LENGTH_SHORT).show();
+        return retval;
+    }
+
+    boolean validatepassword(String password1) {
+        boolean retval = false;
+        if (password1.length() <= 25 && password1.length() >= 8) {
+            retval = true;
+        }
+        else
+            Toast.makeText(this, R.string.PasswordValidationError, Toast.LENGTH_SHORT).show();
+        return retval;
     }
 }

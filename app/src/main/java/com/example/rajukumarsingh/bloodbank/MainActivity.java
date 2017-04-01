@@ -42,13 +42,11 @@ public class MainActivity extends AppCompatActivity {
                 activeNetwork.isConnectedOrConnecting();
 
         if (!isConnected) {
-            Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.InternetError, Toast.LENGTH_SHORT).show();
             Intent i=new Intent(MainActivity.this,Offline.class);
             startActivity(i);
 
         }
-        else
-            Toast.makeText(this, "Internet connection", Toast.LENGTH_SHORT).show();
 
         donor= (Button) findViewById(R.id.donor);
         acceptor= (Button) findViewById(R.id.button6);
@@ -104,18 +102,18 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferences mPrefs = getSharedPreferences("IDvalue",0);
                 str = mPrefs.getString("k", "");
 
-                builder.setTitle("Send SMS")
-                        .setMessage("Sendig SMS to emergency contact")
-                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                builder.setTitle(getResources().getString(R.string.SendSMS))
+                        .setMessage(getResources().getString(R.string.SendEmergency))
+                        .setPositiveButton(getResources().getString(R.string.YES), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 SmsManager smsManager = SmsManager.getDefault();
-                                smsManager.sendTextMessage(str,null,"HELP!!",null,null);
+                                smsManager.sendTextMessage(str,null,getResources().getString(R.string.Message),null,null);
                             }
                         })
-                        .setTitle("Send SMS")
-                        .setMessage("Sendig SMS to emergency contact")
-                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        .setTitle(getResources().getString(R.string.SendSMS))
+                        .setMessage(getResources().getString(R.string.SendEmergency))
+                        .setNegativeButton(getResources().getString(R.string.NO), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
@@ -146,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                     i.putExtra("Longitude",d2);
                     startActivity(i);
                 } else{
-                    Toast.makeText(MainActivity.this,"Unable to fetch your location. Please try again",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,R.string.LocationError,Toast.LENGTH_SHORT).show();
                 }
             }
         }.execute();
