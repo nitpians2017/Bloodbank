@@ -61,5 +61,20 @@
     <string name="forgot">Forgot Password</string>
     <string name="sign_in_loading">Signing in. Please wait...</string>
     <string name="title_activity_donor_login">Sign Up</string>
-
+    <string name="DonorList">"Donor list"</string>
+    <string name="BloodBankList">blood bank list</string>
+    <string name="SUBMIT">SUBMIT</string>
+    <string name="EMAIL">EMAIL ID</string>
+    <string name="HintDOB">Enter Date of Birth Here</string>
+    <string name="HintName">Enter Name Here</string>
+    <string name="HintAdd">Address</string>
+    <string name="HintCity">Enter City Here</string>
+    <string name="HintDistrict">Enter District Here</string>
+    <string name="HintState">Enter state here</string>
+    <string name="HintPin">Enter Pin Code Here</string>
+    <string name="HintBG">Enter Blood Group here</string>
+    <string name="HintHeight">Height in centimeters</string>
+    <string name="HintWeight">Weight in Kg</string>
+    <string name="Willing">I AM WILLING TO DONATE BLOOD WHEN REQUIRED</string>
+    <string name="Next">NEXT</string>
 </resources>
