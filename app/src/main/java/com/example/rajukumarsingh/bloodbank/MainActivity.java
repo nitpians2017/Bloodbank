@@ -219,8 +219,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else {
                         new android.app.AlertDialog.Builder(this)
-                                .setTitle("SEND SMS DENIED")
-                                .setMessage("you denied for send sms permission go to setting for changing the permission").show();
+                                .setTitle(getResources().getString(R.string.PermissionDeniedTitle))
+                                .setMessage(getResources().getString(R.string.PermissionDeniedMessage)).show();
                     }
                 }
 

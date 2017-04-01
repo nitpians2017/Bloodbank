@@ -38,4 +38,8 @@
     <string name="OK">OK</string>
     <string name="SMSPermission">ENABLE SMS PERMISSION</string>
     <string name="NeedSMSPermission">Please enable SMS permission for sending SMS</string>
+    <string name="PermissionDeniedTitle">SMS PERMISSION DENIED</string>
+    <string name="PermissionDeniedMessage">SMS permission denied please go to Settings to change it.</string>
+    <string name="FetchingDirection">Fetching Direction</string>
+
 </resources>

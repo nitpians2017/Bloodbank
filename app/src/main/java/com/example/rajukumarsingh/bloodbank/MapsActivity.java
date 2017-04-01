@@ -116,8 +116,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onDirectionFinderStart() {
-        progressDialog = ProgressDialog.show(this, "Please wait.",
-                "Finding direction..!", true);
+        progressDialog = ProgressDialog.show(this,getResources().getString(R.string.FetchingDirection),
+                getResources().getString(R.string.Wait), true);
 
         if (originMarkers != null) {
             for (Marker marker : originMarkers) {
