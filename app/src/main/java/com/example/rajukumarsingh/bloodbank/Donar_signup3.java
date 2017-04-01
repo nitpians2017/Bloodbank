@@ -26,7 +26,7 @@ public class Donar_signup3 extends AppCompatActivity {
     RequestQueue requestQueue;
     Button submit;
     String url=Constants.DONOR_SIGNUP;
-    SharedPreferences sp;
+
 
 
     @Override

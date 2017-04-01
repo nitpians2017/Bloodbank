@@ -65,7 +65,7 @@ public class Acceptor_SignUp extends AppCompatActivity {
 
                 SharedPreferences mPrefs = getSharedPreferences("IDvalue", 0);
                 SharedPreferences.Editor editor = mPrefs.edit();
-                editor.putString("k", Emergency_contact);
+               // editor.putString("k", Emergency_contact);
                 editor.putString("c",City);
                 editor.commit();
 
