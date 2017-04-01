@@ -175,21 +175,21 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
                 SharedPreferences mPrefs = getSharedPreferences("IDvalue", 0);
                 final String str = mPrefs.getString("k", "");
 
-                new AlertDialog.Builder(Bloodbank_list.this).setTitle("Send SMS")
-                        .setMessage("Sendig SMS to emergency contact")
-                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                new AlertDialog.Builder(Bloodbank_list.this).setTitle(getResources().getString(R.string.SendSMS))
+                        .setMessage(getResources().getString(R.string.SendEmergency))
+                        .setPositiveButton(getResources().getString(R.string.YES), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 if (str == null || str.length() < 10) {
                                     AlertDialog alertDialog = new AlertDialog.Builder(Bloodbank_list.this).create();
                                     final EditText input = new EditText(Bloodbank_list.this);
-                                    input.setHint("Your Mobile Number");
+                                    input.setHint(getResources().getString(R.string.MobileNumber));
                                     LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                                             LinearLayout.LayoutParams.MATCH_PARENT,
                                             LinearLayout.LayoutParams.MATCH_PARENT);
                                     input.setLayoutParams(lp);
                                     alertDialog.setView(input);
-                                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Ok", new DialogInterface.OnClickListener() {
+                                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getResources().getString(R.string.OK), new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int whichButton) {
                                             String number = input.getText().toString();
                                             SmsManager smsManager = SmsManager.getDefault();
@@ -205,9 +205,9 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
                                 }
                             }
                         })
-                        .setTitle("Send SMS")
-                        .setMessage("Sendig SMS to emergency contact")
-                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        .setTitle(getResources().getString(R.string.SendSMS))
+                        .setMessage(getResources().getString(R.string.SendEmergency))
+                        .setNegativeButton(getResources().getString(R.string.NO), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
