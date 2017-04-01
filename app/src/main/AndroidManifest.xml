@@ -22,10 +22,7 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"></activity>
-        <activity
-            android:name=".Donor_login"
-            android:screenOrientation="portrait">
-        </activity>
+
         <activity
             android:name=".Donor_login"
             android:screenOrientation="portrait" >
