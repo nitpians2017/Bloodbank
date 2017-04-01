@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <EditText
-                android:hint="Enter Date of Birth Here"
+                android:hint="@string/HintDOB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <EditText
-                android:hint="Enter Name Here"
+                android:hint="@string/HintName"
                 android:inputType="textPersonName"
                 android:id="@+id/editText3"
                 android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <EditText
-                android:hint="Address"
+                android:hint="@string/HintAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content">
 
             <EditText
-                android:hint="Enter City Here"
+                android:hint="@string/HintCity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -68,7 +68,7 @@
 
 
             <EditText
-                android:hint="Enter District Here"
+                android:hint="@string/HintDistrict"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <EditText
-                android:hint="Enter state here"
+                android:hint="@string/HintState"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -91,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <EditText
-                android:hint="Enter Pin Code Here"
+                android:hint="@string/HintPin"
                 android:maxLength="6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -105,6 +105,7 @@
             <EditText
                 android:hint="Enter your Blood_group"
                 android:id="@+id/editText28"
+                android:hint="@string/HintBG"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"/>
@@ -117,7 +118,7 @@
                 android:id="@+id/editText29"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Height in centimeters"
+                android:hint="@string/HintHeight"
                 android:inputType="number"
                 android:maxLength="3" />
             </android.support.design.widget.TextInputLayout>
@@ -130,10 +131,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Weight in Kg"/>
+                android:hint="@string/HintWeight"/>
             </android.support.design.widget.TextInputLayout>
-
-
             <EditText
                 android:focusable="false"
                 android:clickable="true"
@@ -160,7 +159,7 @@
                 android:layout_below="@+id/editText32"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="13dp"
-                android:text="I AM WILLING TO DONATE BLOOD WHEN REQUIRED"
+                android:text="@string/Willing"
                 android:textStyle="normal|bold" />
 
 
@@ -178,13 +177,15 @@
                     android:id="@+id/radioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="YES"></RadioButton>
+                    android:text="@string/YES"
+                    ></RadioButton>
 
                 <RadioButton
                     android:id="@+id/radioButton2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="NO"></RadioButton>
+                    android:text="@string/NO"
+                    ></RadioButton>
 
             </RadioGroup>
 
