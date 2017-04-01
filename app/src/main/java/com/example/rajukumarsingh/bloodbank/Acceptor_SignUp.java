@@ -25,7 +25,7 @@ public class Acceptor_SignUp extends AppCompatActivity {
     String Name,Dob,Address,City,District,State,Pin,Blood_group,Phone,Emergency_contact,Email,Password;
     RequestQueue requestQueue;
     Button submit;
-    String url="http://rahulraj47.coolpage.biz/ACCEPTOR.php";
+    String url=Constants.ACCEPTOR_SIGNUP;
 
 
     @Override

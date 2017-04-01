@@ -30,9 +30,9 @@ public class Acceptor_Login extends AppCompatActivity {
     Button login;
     Double d1, d2;
     RequestQueue requestQueue;
-    String url = "http://rahulraj47.coolpage.biz/Acceptor_login.php";
+    String url = Constants.ACCEPTOR_LOGIN_URL;
     String city,data;
-    String url1="http://rahulraj47.coolpage.biz/donor2.php";
+    String url1=Constants.DONOR_CITY_SEARCH;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

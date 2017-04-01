@@ -22,7 +22,7 @@ public class Bloodbank_login extends AppCompatActivity {
  EditText reg_no,password;
     Button login;
     RequestQueue requestQueue;
-    String url="http://rahulraj47.coolpage.biz/blood_bank_login.php";
+    String url=Constants.BLOOD_BANK_LOGIN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

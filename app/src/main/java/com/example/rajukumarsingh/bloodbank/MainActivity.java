@@ -19,8 +19,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -101,26 +104,7 @@ public class MainActivity extends AppCompatActivity {
                     startNextActivity();
                 }
 
-                SharedPreferences mPrefs = getSharedPreferences("IDvalue",0);
-                str = mPrefs.getString("k", "");
 
-                builder.setTitle("Send SMS")
-                        .setMessage("Sendig SMS to emergency contact")
-                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                SmsManager smsManager = SmsManager.getDefault();
-                                smsManager.sendTextMessage(str,null,"HELP!!",null,null);
-                            }
-                        })
-                        .setTitle("Send SMS")
-                        .setMessage("Sendig SMS to emergency contact")
-                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
-                        }).create().show();
             }
 
         });

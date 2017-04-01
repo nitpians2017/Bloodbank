@@ -23,7 +23,7 @@ public class Donor_login extends AppCompatActivity {
     Button log_in;
     Double d1,d2,d3,d4;
     RequestQueue requestQueue;
-    String url="http://rahulraj47.coolpage.biz/donor_login.php";
+    String url=Constants.DONOR_LOGIN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

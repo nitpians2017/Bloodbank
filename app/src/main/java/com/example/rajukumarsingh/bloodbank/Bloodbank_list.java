@@ -1,17 +1,21 @@
 package com.example.rajukumarsingh.bloodbank;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.Location;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
@@ -19,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -50,7 +55,7 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
     EditText city2;
     String str[]={"2","3","5","10","15","20"};
     int k=0;
-    String url = "http://rahulraj47.coolpage.biz/gps_fetch.php";
+    String url = Constants.GPS_FETCH;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +76,7 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
 
         editor.commit();
 
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN); //HIDE DEFAULT KEYBOARD
 
 
         search=(Button)findViewById(R.id.button11);
@@ -142,6 +148,53 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
                 {
                     Toast.makeText(Bloodbank_list.this, "your city is not avilable in our database", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        ((Button)findViewById(R.id.contactDonor)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences mPrefs = getSharedPreferences("IDvalue",0);
+                final String str = mPrefs.getString("k", "");
+
+                new AlertDialog.Builder(Bloodbank_list.this).setTitle("Send SMS")
+                        .setMessage("Sendig SMS to emergency contact")
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                if(str == null || str.length() <10){
+                                    AlertDialog alertDialog =  new AlertDialog.Builder(Bloodbank_list.this).create();
+                                    final EditText input = new EditText(Bloodbank_list.this);
+                                    input.setHint("Your Mobile Number");
+                                    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                                            LinearLayout.LayoutParams.MATCH_PARENT,
+                                            LinearLayout.LayoutParams.MATCH_PARENT);
+                                    input.setLayoutParams(lp);
+                                    alertDialog.setView(input);
+                                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Ok", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int whichButton) {
+                                            String number = input.getText().toString();
+                                            SmsManager smsManager = SmsManager.getDefault();
+                                            smsManager.sendTextMessage(number, null, "HELP!!", null, null);
+                                        }
+                                    });
+                                    alertDialog.show();
+
+
+                                }else {
+                                    SmsManager smsManager = SmsManager.getDefault();
+                                    smsManager.sendTextMessage(str, null, "HELP!!", null, null);
+                                }
+                            }
+                        })
+                        .setTitle("Send SMS")
+                        .setMessage("Sendig SMS to emergency contact")
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        }).create().show();
             }
         });
 
@@ -268,7 +321,11 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
 
             @Override
             protected Void doInBackground(Void... params) {
-                get.getAllData();
+                try {
+                    get.getAllData();
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
                 return null;
             }
 
@@ -283,10 +340,14 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
             @Override
             protected void onPostExecute(Void v) {
                 super.onPostExecute(v);
-                loading.dismiss();
-                calculate();
-                Custom custom = new Custom();
-                listView.setAdapter(custom);
+                try {
+                    loading.dismiss();
+                    calculate();
+                    Custom custom = new Custom();
+                    listView.setAdapter(custom);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
         GetImage getImage = new GetImage();
