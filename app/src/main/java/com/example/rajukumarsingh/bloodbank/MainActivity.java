@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         if (!isConnected) {
             Toast.makeText(this, R.string.InternetError, Toast.LENGTH_SHORT).show();
             Intent i=new Intent(MainActivity.this,Offline.class);
-            startActivity(i);
+            startActivity(i); //to do back button handling
 
         }
 
