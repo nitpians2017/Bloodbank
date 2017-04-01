@@ -26,7 +26,7 @@ public class Bloodbank_sign_up extends AppCompatActivity {
     EditText blood_bank_name, reg_no, address, city, district, state, pin_code, contact, email;
     String Blood_Bank_Name, Reg_No, Address, City, District, State, Pin_Code, Contact, Email;
     RequestQueue requestQueue;
-    String url = "http://rahulraj47.coolpage.biz/blood_bank.php";
+    String url=Constants.BLOOD_BANK_SIGNUP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

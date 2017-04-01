@@ -19,8 +19,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -99,26 +102,7 @@ public class MainActivity extends AppCompatActivity {
                     startNextActivity();
                 }
 
-                SharedPreferences mPrefs = getSharedPreferences("IDvalue",0);
-                str = mPrefs.getString("k", "");
 
-                builder.setTitle(getResources().getString(R.string.SendSMS))
-                        .setMessage(getResources().getString(R.string.SendEmergency))
-                        .setPositiveButton(getResources().getString(R.string.YES), new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                SmsManager smsManager = SmsManager.getDefault();
-                                smsManager.sendTextMessage(str,null,getResources().getString(R.string.Message),null,null);
-                            }
-                        })
-                        .setTitle(getResources().getString(R.string.SendSMS))
-                        .setMessage(getResources().getString(R.string.SendEmergency))
-                        .setNegativeButton(getResources().getString(R.string.NO), new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
-                        }).create().show();
             }
 
         });

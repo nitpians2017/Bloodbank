@@ -25,7 +25,7 @@ public class Donar_signup3 extends AppCompatActivity {
     String Blood_group, Height, Weight, Last_blood_donation, Will_of_donor, Last_platelete_donation, Name, Dob, Address, City, District, State, Pin, Phone, Emergency_contact1, Emergency_contact2, Email, Password;
     RequestQueue requestQueue;
     Button submit;
-    String url = "http://rahulraj47.coolpage.biz/donor1.php";
+    String url=Constants.DONOR_SIGNUP;
     SharedPreferences sp;
 
 

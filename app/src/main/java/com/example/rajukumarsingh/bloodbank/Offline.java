@@ -41,9 +41,6 @@ public class Offline extends AppCompatActivity {
         d2= Double.parseDouble(s2);
         try {
             jsonArray = new JSONArray(data);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
         h_name = new String[jsonArray.length()];
         state = new String[jsonArray.length()];
         lati = new String[jsonArray.length()];
@@ -98,7 +95,11 @@ public class Offline extends AppCompatActivity {
             }
         }
         MyCustom myCustom = new MyCustom();
-        listView.setAdapter(myCustom); 
+        listView.setAdapter(myCustom);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public  class MyCustom extends BaseAdapter{
