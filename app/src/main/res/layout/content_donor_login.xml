@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="16dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.rajukumarsingh.bloodbank.DonorSignupActivity"
     tools:showIn="@layout/activity_donor_login">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         <LinearLayout
+            app:layout_constraintRight_toRightOf="parent"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="wrap_content">
@@ -72,8 +71,105 @@
                 android:inputType="number"
                 android:id="@+id/editText9"/>
 
+
+            <EditText
+                android:id="@+id/editText28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"/>
+
+            <EditText
+                android:id="@+id/editText29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Height in centimeters"
+                android:inputType="number"
+                android:maxLength="3" />
+
+            <EditText
+                android:id="@+id/editText30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Weight in Kg"/>
+
+            <EditText
+                android:id="@+id/editText31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"/>
+
+            <Button
+                android:id="@+id/button14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/editText32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                />
+
+            <Button
+                android:id="@+id/button15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/textView66"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/editText32"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="13dp"
+                android:background="#ffffff"
+                android:text="I AM WILLING TO DONATE BLOOD WHEN REQUIRED"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:textStyle="normal|bold" />
+
+            <Button
+                android:id="@+id/button16"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/radiogroup"
+                android:layout_centerHorizontal="true"
+                android:background="#3E2723"
+                android:elevation="11dp"
+                android:text="NEXT"
+                android:textSize="25dp"
+                android:textStyle="normal|bold" />
+
+            <RadioGroup
+                android:id="@+id/radiogroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_below="@+id/textView66"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="YES"
+                    android:textColor="#000000"
+                    android:textSize="25dp"
+                    android:textStyle="normal|bold" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NO"
+                    android:textColor="#000000"
+                    android:textSize="25dp"
+                    android:textStyle="normal|bold" />
+
+            </RadioGroup>
+
         </LinearLayout>
-    </ScrollView>
 
-
-</android.support.constraint.ConstraintLayout>
+</ScrollView>
