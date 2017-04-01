@@ -57,8 +57,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-
-        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
         Bundle bundle = getIntent().getExtras();
         d1 = bundle.getDouble("Latitude1");
         d2 = bundle.getDouble("Longitude1");
@@ -116,8 +114,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onDirectionFinderStart() {
-        progressDialog = ProgressDialog.show(this, "Please wait.",
-                "Finding direction..!", true);
+        progressDialog = ProgressDialog.show(this,getResources().getString(R.string.FetchingDirection),
+                getResources().getString(R.string.Wait), true);
 
         if (originMarkers != null) {
             for (Marker marker : originMarkers) {

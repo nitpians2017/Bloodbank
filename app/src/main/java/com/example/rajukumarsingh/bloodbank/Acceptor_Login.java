@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,7 +54,7 @@ public class Acceptor_Login extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url1, new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
-                data = s;
+                Log.d("JSON Response: ",s);
             }
         }, new Response.ErrorListener() {
             @Override
