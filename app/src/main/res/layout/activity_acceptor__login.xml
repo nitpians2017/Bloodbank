@@ -15,7 +15,7 @@
         android:layout_below="@+id/editText2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="47dp"
-        android:text="SUBMIT"
+        android:text="@string/SUBMIT"
         android:textColor="#ffffff"
         android:textSize="30dp"
         android:textStyle="bold"

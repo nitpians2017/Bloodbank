@@ -11,7 +11,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class Donar_signup2 extends AppCompatActivity {
     EditText blood_group, height, weight, last_blood_donation, last_platelete_donation;
@@ -20,21 +23,45 @@ public class Donar_signup2 extends AppCompatActivity {
     String Name, Dob, Address, City, District, State, Pin;
     RadioButton radioButton, radioButton1;
 
-    DatePickerDialog.OnDateSetListener dd = new DatePickerDialog.OnDateSetListener() {
+
+
+    Calendar myCalendar = Calendar.getInstance();
+
+    DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
         @Override
-        public void onDateSet(DatePicker view, int year, int month, int date) {
-            date3 = "" + date + "/" + month + "/" + year;
-            last_blood_donation.setText(date3);
+        public void onDateSet(DatePicker view, int year, int monthOfYear,
+                              int dayOfMonth) {
+            // TODO Auto-generated method stub
+            myCalendar.set(Calendar.YEAR, year);
+            myCalendar.set(Calendar.MONTH, monthOfYear);
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateLabel();
         }
+
     };
 
-    DatePickerDialog.OnDateSetListener dd1 = new DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet(DatePicker view, int year, int month, int date) {
-            date4 = "" + date + "/" + month + "/" + year;
-            last_platelete_donation.setText(date4);
-        }
-    };
+
+
+
+
+
+
+//    DatePickerDialog.OnDateSetListener dd = new DatePickerDialog.OnDateSetListener() {
+//        @Override
+//        public void onDateSet(DatePicker view, int year, int month, int date) {
+//            date3 = "" + date + "/" + month + "/" + year;
+//            last_blood_donation.setText(date3);
+//        }
+//    };
+//
+//    DatePickerDialog.OnDateSetListener dd1 = new DatePickerDialog.OnDateSetListener() {
+//        @Override
+//        public void onDateSet(DatePicker view, int year, int month, int date) {
+//            date4 = "" + date + "/" + month + "/" + year;
+//            last_platelete_donation.setText(date4);
+//        }
+//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,21 +115,14 @@ public class Donar_signup2 extends AppCompatActivity {
         });
 
 
-        date1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar cal = Calendar.getInstance();
-                new DatePickerDialog(Donar_signup2.this, dd, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE)).show();
-            }
-        });
-
-        date2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar cal = Calendar.getInstance();
-                new DatePickerDialog(Donar_signup2.this, dd1, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE)).show();
-            }
-        });
+      last_blood_donation.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              new DatePickerDialog(Donar_signup2.this, date, myCalendar
+                      .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                      myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+          }
+      });
 
         radioButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,4 +137,12 @@ public class Donar_signup2 extends AppCompatActivity {
             }
         });
     }
-}
+    private void updateLabel() {
+
+            String myFormat = "MM/dd/yy"; //In which you need put here
+            SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+            last_blood_donation.setText(sdf.format(myCalendar.getTime()));
+        }
+    }
+

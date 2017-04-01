@@ -20,101 +20,137 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <EditText
-                android:hint="Enter Date of Birth Here"
+                android:hint="@string/HintDOB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:id="@+id/editText4"/>
             </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
-                android:hint="Enter Name Here"
+                android:hint="@string/HintName"
                 android:inputType="textPersonName"
                 android:id="@+id/editText3"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"/>
+            </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
-                android:hint="Address"
+                android:hint="@string/HintAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:id="@+id/editText5"/>
+            </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
             <EditText
-                android:hint="Enter City Here"
+                android:hint="@string/HintCity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:id="@+id/editText6" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
             <EditText
-                android:hint="Enter District Here"
+                android:hint="@string/HintDistrict"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:id="@+id/editText7" />
+            </android.support.design.widget.TextInputLayout>
 
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
-                android:hint="Enter state here"
+                android:hint="@string/HintState"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:id="@+id/editText8"/>
+            </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
-                android:hint="Enter Pin Code Here"
+                android:hint="@string/HintPin"
                 android:maxLength="6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:id="@+id/editText9"/>
+            </android.support.design.widget.TextInputLayout>
 
-
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
+                android:hint="Enter your Blood_group"
                 android:id="@+id/editText28"
+                android:hint="@string/HintBG"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"/>
+            </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/editText29"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Height in centimeters"
+                android:hint="@string/HintHeight"
                 android:inputType="number"
                 android:maxLength="3" />
+            </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/editText30"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Weight in Kg"/>
-
+                android:hint="@string/HintWeight"/>
+            </android.support.design.widget.TextInputLayout>
             <EditText
+                android:focusable="false"
+                android:clickable="true"
                 android:id="@+id/editText31"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="date"/>
+                android:hint="Last Blood Donation"
+                />
 
-            <Button
-                android:id="@+id/button14"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
             <EditText
+                android:focusable="false"
                 android:id="@+id/editText32"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="date"
-                />
+                android:hint="Last platelete Donated"
+               />
 
-            <Button
-                android:id="@+id/button15"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
 
             <TextView
                 android:id="@+id/textView66"
@@ -123,23 +159,10 @@
                 android:layout_below="@+id/editText32"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="13dp"
-                android:background="#ffffff"
-                android:text="I AM WILLING TO DONATE BLOOD WHEN REQUIRED"
-                android:textColor="#000000"
-                android:textSize="15dp"
+                android:text="@string/Willing"
                 android:textStyle="normal|bold" />
 
-            <Button
-                android:id="@+id/button16"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:layout_below="@+id/radiogroup"
-                android:layout_centerHorizontal="true"
-                android:background="#3E2723"
-                android:elevation="11dp"
-                android:text="NEXT"
-                android:textSize="25dp"
-                android:textStyle="normal|bold" />
+
 
             <RadioGroup
                 android:id="@+id/radiogroup"
@@ -154,21 +177,82 @@
                     android:id="@+id/radioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="YES"
-                    android:textColor="#000000"
-                    android:textSize="25dp"
-                    android:textStyle="normal|bold" />
+                    android:text="@string/YES"
+                    ></RadioButton>
 
                 <RadioButton
                     android:id="@+id/radioButton2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="NO"
-                    android:textColor="#000000"
-                    android:textSize="25dp"
-                    android:textStyle="normal|bold" />
+                    android:text="@string/NO"
+                    ></RadioButton>
 
             </RadioGroup>
+
+
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:id="@+id/editText36"
+                android:hint="Email"
+                 />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:id="@+id/editText35"
+                android:hint="Emergency Contact"
+                />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:id="@+id/editText34"
+                android:hint="Emergency Contact"
+
+                />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                android:hint="Phone Number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:id="@+id/editText33"
+             />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:id="@+id/editText37"
+                android:hint="Password"
+               />
+            </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
 

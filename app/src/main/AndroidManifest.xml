@@ -21,6 +21,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".Donor_login"
             android:screenOrientation="portrait">
         </activity>
         <activity
@@ -105,6 +108,7 @@
             android:label="@string/title_activity_donor_login"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+        <activity android:name=".FAQ_Activity" android:screenOrientation="portrait"></activity>
         <activity
             android:screenOrientation="portrait"
             android:name=".DashboardActivity"
