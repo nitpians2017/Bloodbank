@@ -14,18 +14,30 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Donor_login" />
-        <activity android:name=".Donor" />
-        <activity android:name=".Acceptor" />
-        <activity android:name=".Donor_signup" />
-        <activity android:name=".Bloodbank_list" />
+        <activity
+            android:name=".Donor_login"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Donor"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Acceptor"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Donor_signup"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Bloodbank_list"
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -40,17 +52,38 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
-        <activity android:name=".Blood_Bank" />
-        <activity android:name=".Acceptor_SignUp" />
-        <activity android:name=".Acceptor_Login" />
-        <activity android:name=".Bloodbank_sign_up" />
-        <activity android:name=".Bloodbank_login" />
-        <activity android:name=".Donar_signup2" />
-        <activity android:name=".Donar_signup3" />
-        <activity android:name=".Blood_bank_details" />
-        <activity android:name=".Acceptor_2" />
-        <activity android:name=".Donor_list" />
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Blood_Bank"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Acceptor_SignUp"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Acceptor_Login"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Bloodbank_sign_up"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Bloodbank_login"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Donar_signup2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Donar_signup3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Blood_bank_details"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Acceptor_2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Donor_list"
+            android:screenOrientation="portrait" />
 
         <receiver android:name=".VolumeChangeReceiver">
             <intent-filter>
@@ -58,7 +91,9 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".Offline"></activity>
+        <activity
+            android:name=".Offline"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
