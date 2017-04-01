@@ -1,27 +1,33 @@
 package com.example.rajukumarsingh.bloodbank;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+public class DonorSignupActivity extends AppCompatActivity {
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Pattern;
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_donor_login);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//
+//
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+//    }
 
-public class Donor_signup extends AppCompatActivity {
     EditText name, dob, address, city, district, state, pin;
     String Name, Dob, Address, City, District, State, Pin;
 //    Button date, next;
@@ -29,7 +35,11 @@ public class Donor_signup extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main5);
+        setContentView(R.layout.activity_donor_login);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getResources().getString(R.string.action_sign_up));
+        setSupportActionBar(toolbar);
+
 
 
         name = (EditText) findViewById(R.id.editText3);
@@ -41,7 +51,7 @@ public class Donor_signup extends AppCompatActivity {
         pin = (EditText) findViewById(R.id.editText9);
 //        next = (Button) findViewById(R.id.button12);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.button12);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +64,7 @@ public class Donor_signup extends AppCompatActivity {
                 State = state.getText().toString();
                 Pin = pin.getText().toString();
 
-                Intent intent = new Intent(Donor_signup.this, Donar_signup2.class);
+                Intent intent = new Intent(DonorSignupActivity.this, Donar_signup2.class);
                 intent.putExtra("Name", Name);
                 intent.putExtra("Dob", Dob);
                 intent.putExtra("Address", Address);
@@ -68,4 +78,7 @@ public class Donor_signup extends AppCompatActivity {
 
 
     }
+
+
+
 }

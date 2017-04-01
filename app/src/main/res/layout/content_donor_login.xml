@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.rajukumarsingh.bloodbank.DonorSignupActivity"
+    tools:showIn="@layout/activity_donor_login">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                android:hint="Enter Date of Birth Here"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:id="@+id/editText4"/>
+            </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:hint="Enter Name Here"
+                android:inputType="textPersonName"
+                android:id="@+id/editText3"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
+
+            <EditText
+                android:hint="Address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:id="@+id/editText5"/>
+
+
+            <EditText
+                android:hint="Enter City Here"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:id="@+id/editText6" />
+
+
+            <EditText
+                android:hint="Enter District Here"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:id="@+id/editText7" />
+
+            <EditText
+                android:hint="Enter state here"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:id="@+id/editText8"/>
+
+            <EditText
+                android:hint="Enter Pin Code Here"
+                android:maxLength="6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:id="@+id/editText9"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>
