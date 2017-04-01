@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="alarmapp.test.com.alarmapp.AddCertificateActivity"
     android:orientation="vertical"
 
     tools:showIn="@layout/activity_add_certificate">
@@ -19,6 +18,7 @@
         android:id="@+id/toggleButton"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"

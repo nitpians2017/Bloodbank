@@ -2,6 +2,7 @@ package com.example.rajukumarsingh.bloodbank.alarm;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -41,10 +42,11 @@ public class AddCertificateActivity extends AppCompatActivity {
         img.setGravity(Gravity.CENTER);
         img.setEnabled(false);
 
-        String name = "Rumita Dhar";
+
+        String name = getIntent().getStringExtra("name");
         String dt = getIntent().getStringExtra("date");
 
-        String txt = "<h3><font color='#FFFFFF'>"+name+"</font></h3><p><font color='#DDDDDD'>"+dt+"</font></p>";
+        String txt = "<p><b><font color='#FFFFFF'>"+name+"</font></b></p><p><font color='#DDDDDD'>"+dt+"</font></p>";
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             img.setText(Html.fromHtml(txt, Html.FROM_HTML_MODE_LEGACY));

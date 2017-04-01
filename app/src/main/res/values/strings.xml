@@ -72,5 +72,6 @@
     <string name="title_activity_donation_date">Donation Date</string>
     <string name="title_activity_add_certificate">Certificate</string>
     <string name="error_activity_not_found">Oops, we could not find the requested application</string>
-
+    <string name="name">Enter name here</string>
+    <string name="invalid_name">Please provide a valid name</string>
 </resources>

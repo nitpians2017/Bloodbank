@@ -9,7 +9,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="alarmapp.test.com.alarmapp.DonationDateActivity"
     tools:showIn="@layout/activity_donation_date">
     <LinearLayout
         android:orientation="vertical"
@@ -21,6 +20,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="When did you donate blood?"/>
+
+
+        <EditText
+            android:lines="1"
+            android:inputType="textCapWords"
+            android:visibility="gone"
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name"/>
 
         <DatePicker
             android:layout_width="wrap_content"

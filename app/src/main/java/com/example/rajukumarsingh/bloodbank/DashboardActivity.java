@@ -337,7 +337,8 @@ public class DashboardActivity extends AppCompatActivity
         } else if (id == R.id.credits) {
 
         } else if (id == R.id.certs) {
-
+            Intent intent = new Intent(DashboardActivity.this, DonationDateActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
