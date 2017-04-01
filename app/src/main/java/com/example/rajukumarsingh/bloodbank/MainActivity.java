@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                     i.putExtra("Longitude",d2);
                     startActivity(i);
                 } else{
-                    Toast.makeText(MainActivity.this,"Unable to fetch your location. Please try again",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,R.string.LocationError,Toast.LENGTH_SHORT).show();
                 }
             }
         }.execute();
@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
                     i.putExtra("Longitude",d2);
                     startActivity(i);
                 } else{
-                    Toast.makeText(MainActivity.this,"Unable to fetch your location. Please try again",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,R.string.LocationError,Toast.LENGTH_SHORT).show();
                 }
             }
         }.execute();
@@ -189,11 +189,11 @@ public class MainActivity extends AppCompatActivity {
                 startNextActivity();
             }
             else {
-                String message = "For Blood Bank App to function properly, we need to access your current location.";
+                String message = getResources().getString(R.string.LocationRequest);
 
                 AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
                 alertDialog.setMessage(message);
-                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"OK", new DialogInterface.OnClickListener() {
+                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,getResources().getString(R.string.OK), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
@@ -214,8 +214,8 @@ public class MainActivity extends AppCompatActivity {
                 }else {
                     if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.SEND_SMS)){
                         new android.app.AlertDialog.Builder(this)
-                                .setTitle("SEND SMS  PERMISSION")
-                                .setMessage("you need to send sms permission for sending sms").show();
+                                .setTitle(getResources().getString(R.string.SMSPermission))
+                                .setMessage(getResources().getString(R.string.NeedSMSPermission)).show();
                     }
                     else {
                         new android.app.AlertDialog.Builder(this)

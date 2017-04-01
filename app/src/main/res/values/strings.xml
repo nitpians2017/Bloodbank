@@ -34,4 +34,8 @@
     <string name="SendSMS">Send SMS</string>
     <string name="SendEmergency">Sendig SMS to emergency contact</string>
     <string name="LocationError">Unable to fetch your location. Please try again..</string>
+    <string name="LocationRequest">For Blood Bank App to function properly, we need to access your current location.</string>
+    <string name="OK">OK</string>
+    <string name="SMSPermission">ENABLE SMS PERMISSION</string>
+    <string name="NeedSMSPermission">Please enable SMS permission for sending SMS</string>
 </resources>
