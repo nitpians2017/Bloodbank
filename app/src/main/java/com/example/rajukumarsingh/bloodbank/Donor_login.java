@@ -79,10 +79,8 @@ public class Donor_login extends AppCompatActivity {
                         progressDialog.dismiss();
                         if (f == 1) {
                             Toast.makeText(Donor_login.this, R.string.Loginsuccess, Toast.LENGTH_SHORT).show();
-//                            Intent intent = new Intent(Donor_login.this, Bloodbank_list.class);
-//                            intent.putExtra("Latitude", d1);
-//                            intent.putExtra("Longitude", d2);
-//                            startActivity(intent);
+                            Intent intent = new Intent(Donor_login.this, DashboardActivity.class);
+                            startActivity(intent);
                         } else
                             Toast.makeText(Donor_login.this,R.string.LoginError, Toast.LENGTH_SHORT).show();
                     }

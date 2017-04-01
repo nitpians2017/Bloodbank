@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.rajukumarsingh.bloodbank.DashboardActivity"
+    tools:showIn="@layout/app_bar_dashboard"
+    android:layout_margin="20dp">
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <Button
+
+        android:id="@+id/donor"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/donor"
+        android:text="I wish to donate"/>
+
+
+    <Button
+        android:background="@drawable/b8"
+        android:id="@+id/button6"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="#800"
+        android:text="I need blood"/>
+
+
+        <Button
+            android:background="@drawable/emergency"
+            android:id="@+id/button8"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="#333"
+            android:layout_height="100dp"
+            android:text="I am in an Emergency"/>
+    </LinearLayout>
+</RelativeLayout>
