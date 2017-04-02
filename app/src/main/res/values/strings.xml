@@ -90,4 +90,10 @@
     <string name="HintWeight">Weight in Kg</string>
     <string name="Willing">I AM WILLING TO DONATE BLOOD WHEN REQUIRED</string>
     <string name="Next">NEXT</string>
+
+    <string name="contact_donor">To protect donor privacy, donor contact details are not shared here. The donor will be contacted by the Red Revolution automated system on your behalf. The donor will get in touch with you if he is available to donate blood. Do you wish to contact the donor? </string>
+    <string name="sms_sent_donor">SMS has been sent to donor</string>
+
+    <string name="enter_bloodgroup">Enter blood group</string>
 </resources>
+

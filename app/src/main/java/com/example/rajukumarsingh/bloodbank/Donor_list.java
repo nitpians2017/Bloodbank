@@ -1,16 +1,21 @@
 package com.example.rajukumarsingh.bloodbank;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,6 +33,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,12 +42,49 @@ public class Donor_list extends AppCompatActivity {
     String data;
     JSONArray jsonArray;
     JSONObject jsonObject;
-    String[] name, blood_group, address, contact;
+//    String[] name, blood_group, address, contact;
+    ArrayList<DonorEntity> donorArray;
+
+    ArrayList<DonorEntity> filteredArray;
+
+    EditText searchText;
+    MyCustom myCustom = new MyCustom();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donor_list);
+
+        filteredArray = new ArrayList<DonorEntity>();
+
+        searchText = (EditText)findViewById(R.id.searchText);
+
+        searchText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String txt = s.toString();
+                filteredArray.clear();
+
+                for(int i = 0; i<donorArray.size(); i++){
+                    DonorEntity entity = donorArray.get(i);
+                    if(entity.blood_group.toLowerCase().contains(txt.toLowerCase())){
+                        filteredArray.add(entity);
+                    }
+                }
+
+                myCustom.notifyDataSetChanged();
+            }
+        });
 
         Bundle bundle = getIntent().getExtras();
         data = bundle.getString("JSON");
@@ -50,26 +93,32 @@ public class Donor_list extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        name = new String[jsonArray.length()];
-        blood_group = new String[jsonArray.length()];
-        address = new String[jsonArray.length()];
-        contact = new String[jsonArray.length()];
+
+        donorArray = new ArrayList<DonorEntity>();
+//        name = new String[jsonArray.length()];
+//        blood_group = new String[jsonArray.length()];
+//        address = new String[jsonArray.length()];
+//        contact = new String[jsonArray.length()];
 
         for (int i = 0; i < jsonArray.length(); i++) {
             try {
                 jsonObject = jsonArray.getJSONObject(i);
-                name[i] = jsonObject.getString("Name");
-                blood_group[i] = jsonObject.getString("Blood_group");
-                address[i] = jsonObject.getString("Address");
-                contact[i] = jsonObject.getString("Phone");
+                DonorEntity entity = new DonorEntity();
 
+
+                entity.name = jsonObject.getString("Name");
+                entity.blood_group = jsonObject.getString("Blood_group");
+                entity.address = jsonObject.getString("Address");
+                entity.contact = jsonObject.getString("Phone");
+                donorArray.add(entity);
+                filteredArray.add(entity);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
 
         listView = (ListView) findViewById(R.id.listview2);
-        MyCustom myCustom = new MyCustom();
+
         listView.setAdapter(myCustom);
     }
 
@@ -77,7 +126,7 @@ public class Donor_list extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return jsonArray.length();
+            return filteredArray.size();
         }
 
         @Override
@@ -100,14 +149,29 @@ public class Donor_list extends AppCompatActivity {
             t2 = (TextView) v.findViewById(R.id.textView88);
             t3 = (TextView) v.findViewById(R.id.textView90);
             imageView = (ImageView) v.findViewById(R.id.imageView2);
-            t1.setText(name[position]);
-            t2.setText(blood_group[position]);
-            t3.setText(address[position]);
+            t1.setText(filteredArray.get(position).name);
+            t2.setText(filteredArray.get(position).blood_group);
+            t3.setText(filteredArray.get(position).address);
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    SmsManager smsManager = SmsManager.getDefault();
-                    smsManager.sendTextMessage(contact[position], null, getResources().getString(R.string.Message), null, null);
+                    new AlertDialog.Builder(Donor_list.this).
+                            setTitle(getResources().getString(R.string.SendSMS))
+                            .setMessage(getResources().getString(R.string.contact_donor))
+                            .setPositiveButton(R.string.YES, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    SmsManager smsManager = SmsManager.getDefault();
+                                    smsManager.sendTextMessage(filteredArray.get(position).contact, null, getResources().getString(R.string.Message), null, null);
+                                    Toast.makeText(Donor_list.this,R.string.sms_sent_donor,Toast.LENGTH_LONG).show();
+                                }
+                            }).setNegativeButton(R.string.NO, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    }).show();
+
                 }
             });
             return v;

@@ -6,22 +6,18 @@
     android:layout_height="match_parent"
     tools:context="com.example.rajukumarsingh.bloodbank.Donor_list">
 
-    <TextView
-        android:text="List of Donor"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        android:fontFamily="cursive"
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView30"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:hint="@string/enter_bloodgroup"
+        android:id="@+id/searchText"/>
 
     <ListView
+        android:layout_below="@+id/searchText"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/listview2"
-        android:layout_below="@+id/textView30"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentLeft="true" />
 </RelativeLayout>
