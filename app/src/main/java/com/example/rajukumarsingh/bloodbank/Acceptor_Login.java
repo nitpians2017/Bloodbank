@@ -55,6 +55,7 @@ public class Acceptor_Login extends AppCompatActivity {
             @Override
             public void onResponse(String s) {
                 Log.d("JSON Response: ",s);
+                data = s;
             }
         }, new Response.ErrorListener() {
             @Override
