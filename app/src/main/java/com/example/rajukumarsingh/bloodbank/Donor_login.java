@@ -2,6 +2,7 @@ package com.example.rajukumarsingh.bloodbank;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Locale;
+
 public class Donor_login extends AppCompatActivity {
     EditText email, password;
     Button log_in, sign_up;
@@ -30,6 +33,12 @@ public class Donor_login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Configuration config = new Configuration();
+        Locale locale = new Locale("hi");
+        config.locale = locale;
+        getResources().updateConfiguration(config,null);
+
         setContentView(R.layout.activity_main4);
         log_in = (Button) findViewById(R.id.button9);
         sign_up = (Button) findViewById(R.id.signup);
