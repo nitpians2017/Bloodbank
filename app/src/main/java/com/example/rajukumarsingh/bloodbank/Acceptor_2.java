@@ -1,5 +1,6 @@
 package com.example.rajukumarsingh.bloodbank;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,7 @@ public class Acceptor_2 extends AppCompatActivity {
     Button button,button2;
     Double d1,d2;
     String JSON;
+    private ProgressDialog dialog;
 
     RequestQueue requestQueue;
     String url = Constants.ACCEPTOR_LOGIN_URL;
@@ -76,16 +78,29 @@ public class Acceptor_2 extends AppCompatActivity {
         SharedPreferences mPrefs = getSharedPreferences("IDvalue", 0);
         city = mPrefs.getString("c", "");
 
+        dialog = new ProgressDialog(this);
+        dialog.setMessage(this.getResources().getString(R.string.Fetchinglocation));
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.show();
+
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url1, new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
                 Log.d("JSON Response: ",s);
                 JSON = s;
+                if (dialog!=null && dialog.isShowing()) {
+                    dialog.dismiss();
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 Toast.makeText(Acceptor_2.this, ""+volleyError, Toast.LENGTH_SHORT).show();
+
+                if (dialog!=null && dialog.isShowing()) {
+                    dialog.dismiss();
+                }
             }
         }) {
             @Override

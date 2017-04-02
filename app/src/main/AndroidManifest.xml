@@ -43,6 +43,7 @@
         <activity
             android:name=".Bloodbank_list"
             android:label="@string/ListofnearbyBloodBanks"
+            android:theme="@style/DarkActionBar"
             android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
