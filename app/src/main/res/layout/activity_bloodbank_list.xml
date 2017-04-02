@@ -37,6 +37,7 @@
         android:id="@+id/textView8" />
 
     <Spinner
+        android:gravity="center_vertical"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView8"
