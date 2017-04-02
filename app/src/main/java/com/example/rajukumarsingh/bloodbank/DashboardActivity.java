@@ -331,8 +331,12 @@ public class DashboardActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.about) {
+            Intent intent = new Intent(DashboardActivity.this,About_Activity.class);
+            startActivity(intent);
 
         } else if (id == R.id.faq) {
+            Intent intent = new Intent(DashboardActivity.this,FAQ_Activity.class);
+            startActivity(intent);
 
         } else if (id == R.id.credits) {
 
