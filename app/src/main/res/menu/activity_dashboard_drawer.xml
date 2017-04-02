@@ -5,23 +5,23 @@
 
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Welcome">
         <menu>
             <item
                 android:id="@+id/about"
-                android:icon="@drawable/ic_menu_camera"
+                android:icon="@drawable/ic_about"
                 android:title="About" />
             <item
                 android:id="@+id/faq"
-                android:icon="@drawable/ic_menu_gallery"
+                android:icon="@drawable/ic_faq"
                 android:title="FAQs" />
             <item
                 android:id="@+id/certs"
-                android:icon="@drawable/ic_menu_slideshow"
+                android:icon="@drawable/ic_action_name"
                 android:title="Certificates" />
             <item
                 android:id="@+id/credits"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ic_credits"
                 android:title="Credits" />
         </menu>
     </item>

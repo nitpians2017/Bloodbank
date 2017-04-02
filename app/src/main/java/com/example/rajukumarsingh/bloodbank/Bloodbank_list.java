@@ -42,6 +42,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
@@ -72,6 +74,11 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
         Bundle bundle = getIntent().getExtras();
         d1 = bundle.getDouble("Latitude");
         d2 = bundle.getDouble("Longitude");
+        String src = bundle.getString("src");
+
+        if(!"dashboard".equalsIgnoreCase(src)){
+            ((Button) findViewById(R.id.contactDonor)).setVisibility(View.GONE);
+        }
 
         Geocoder geocoder = new Geocoder(Bloodbank_list.this, Locale.ENGLISH);
         try {
@@ -166,6 +173,8 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
                 }
             }
         });
+
+
 
         ((Button) findViewById(R.id.contactDonor)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -316,6 +325,9 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
                     e.printStackTrace();
                 }
             }
+
+
+
         }
     }
 
@@ -432,6 +444,7 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
                 }
             }
         }
+
     }
 
 
@@ -490,4 +503,13 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
     }
 
 
-}
+    class BloodBankComparator implements Comparator {
+        public int compare(Object o1, Object o2) {
+            BloodBankEntity s1 = (BloodBankEntity) o1;
+            BloodBankEntity s2 = (BloodBankEntity) o2;
+
+            return s1.dist.compareTo(s2.dist);
+        }
+    }
+
+    }

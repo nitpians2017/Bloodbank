@@ -102,7 +102,7 @@ public class DashboardActivity extends AppCompatActivity
                     ActivityCompat.requestPermissions(DashboardActivity.this, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION,
                             android.Manifest.permission.ACCESS_FINE_LOCATION}, 100);
                 } else{
-                    startNextActivity();
+                    startNextActivity1();
                 }
 
             }
@@ -164,6 +164,7 @@ public class DashboardActivity extends AppCompatActivity
                     Intent i =new Intent(DashboardActivity.this,Bloodbank_list.class);
                     i.putExtra("Latitude",d1);
                     i.putExtra("Longitude",d2);
+                    i.putExtra("src","dashboard");
 
                     String s3 = Double.toString(d1);
                     String s4 = Double.toString(d2);
@@ -193,7 +194,7 @@ public class DashboardActivity extends AppCompatActivity
                     d2 = location.getLongitude();
 
 
-                    Intent i =new Intent(DashboardActivity.this,Donor.class);
+                    Intent i =new Intent(DashboardActivity.this,Bloodbank_list.class);
                     i.putExtra("Latitude",d1);
                     i.putExtra("Longitude",d2);
                     startActivity(i);
