@@ -399,8 +399,10 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
                 d3 = Double.parseDouble(lati[i]);
                 d4 = Double.parseDouble(longi[i]);
                 Location.distanceBetween(d1, d2, d3, d4, result);
+
                 result[0]/=1000;
-                new DecimalFormat("####.##").format(result[0]);
+                result[0] = Float.parseFloat(new DecimalFormat("####.##").format(result[0]));
+
                 if (result[0] <= n) {
                     dist[k] = Float.toString(result[0]);
                     lati1[k] = lati[i];
@@ -426,13 +428,17 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
                 d3 = Double.parseDouble(lati[i]);
                 d4 = Double.parseDouble(longi[i]);
                 Location.distanceBetween(d6, d7, d3, d4, result);
+
                 result[0]/=1000;
-                new DecimalFormat("####.##").format(result[0]);
+                result[0] = Float.parseFloat(new DecimalFormat("####.##").format(result[0]));
+
                 Location.distanceBetween(d6, d7, d1, d2, result1);
+
                 result1[0]/=1000;
-                new DecimalFormat("####.##").format(result1[0]);
+                result1[0] = Float.parseFloat(new DecimalFormat("####.##").format(result1[0]));
+
                 if (result[0] <= n) {
-                    dist[k] = Float.toString(result[0] + result1[0]);
+                    dist[k] = Float.toString(Float.parseFloat(new DecimalFormat("####.##").format(result1[0] + result[0])));
                     lati1[k] = lati[i];
                     longi1[k] = longi[i];
                     h_name1[k] = h_name[i];

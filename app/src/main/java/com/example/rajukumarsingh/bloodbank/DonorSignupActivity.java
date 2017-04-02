@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -33,7 +34,7 @@ import java.util.regex.Pattern;
 public class DonorSignupActivity extends AppCompatActivity {
 
 
-    EditText name, dob, address, city, district, state, pin;
+    EditText name, dob, address, city, district, state, pin, otp1;
     EditText phone, emergency_contact1, emergency_contact2, email, password;
     EditText blood_group, height, weight, last_blood_donation, last_platelete_donation;
     String Blood_group, Height, Weight, Last_blood_donation, Last_platelete_donation, will_of_donor;
@@ -42,6 +43,7 @@ public class DonorSignupActivity extends AppCompatActivity {
     RadioButton radioButton, radioButton1;
     RequestQueue requestQueue;
     String url = Constants.DONOR_SIGNUP;
+    Button otp;
 
     Calendar myCalendar = Calendar.getInstance();
 
@@ -106,8 +108,30 @@ public class DonorSignupActivity extends AppCompatActivity {
         emergency_contact2 = (EditText) findViewById(R.id.editText35);
         email = (EditText) findViewById(R.id.editText36);
         password = (EditText) findViewById(R.id.editText37);
+        otp1 = (EditText) findViewById(R.id.otp);
+        otp = (Button) findViewById(R.id.generate_otp);
         requestQueue = Volley.newRequestQueue(this);
 
+        otp1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String number = phone.getText().toString();
+                SmsManager smsManager = SmsManager.getDefault();
+                smsManager.sendTextMessage(number, null,"Your OTP is 0000" , null, null);
+            }
+        });
+
+        otp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String input = otp1.getText().toString();
+                boolean result = validateotp(input);
+                if (result)
+                    Toast.makeText(DonorSignupActivity.this, "Correct OTP", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(DonorSignupActivity.this, "Incorrect OTP", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         last_blood_donation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,10 +189,8 @@ public class DonorSignupActivity extends AppCompatActivity {
                 SharedPreferences mPrefs = getSharedPreferences("IDvalue", 0);
                 SharedPreferences.Editor editor = mPrefs.edit();
                 editor.putString("k", Emergency_contact1);
-                editor.putString("name",Name);
+                editor.putString("name", Name);
                 editor.commit();
-
-
 
 
                 if (validateEmail(Email) == true && validatephone(Phone) == true && validatepin(Pin) == true &&
@@ -289,6 +311,14 @@ public class DonorSignupActivity extends AppCompatActivity {
             retval = true;
         } else
             Toast.makeText(this, R.string.PasswordValidationError, Toast.LENGTH_SHORT).show();
+        return retval;
+    }
+
+    boolean validateotp(String otp) {
+        boolean retval = false;
+        if ("0000".equals(otp)) {
+            retval = true;
+        }
         return retval;
     }
 }

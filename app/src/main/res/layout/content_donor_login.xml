@@ -103,7 +103,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <EditText
-                android:hint="Enter your Blood_group"
                 android:id="@+id/editText28"
                 android:hint="@string/HintBG"
                 android:layout_width="match_parent"
@@ -240,6 +239,21 @@
                 android:id="@+id/editText33"
              />
             </android.support.design.widget.TextInputLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter the  OTP"
+                    android:id="@+id/otp"/>
+                <Button
+                    android:text="Verify OTP"
+                    android:id="@+id/generate_otp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
 
 
             <android.support.design.widget.TextInputLayout
