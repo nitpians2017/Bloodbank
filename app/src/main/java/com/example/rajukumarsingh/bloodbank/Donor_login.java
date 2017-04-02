@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -28,16 +30,13 @@ public class Donor_login extends AppCompatActivity {
     Double d1, d2, d3, d4;
     RequestQueue requestQueue;
     String url=Constants.DONOR_LOGIN;
+    RadioGroup radioGroup;
+    RadioButton radioButton,radioButton1;
 
     ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Configuration config = new Configuration();
-        Locale locale = new Locale("hi");
-        config.locale = locale;
-        getResources().updateConfiguration(config,null);
 
         setContentView(R.layout.activity_main4);
         log_in = (Button) findViewById(R.id.button9);
@@ -45,6 +44,10 @@ public class Donor_login extends AppCompatActivity {
         email = (EditText) findViewById(R.id.editText);
         password = (EditText) findViewById(R.id.editText2);
         requestQueue = Volley.newRequestQueue(this);
+
+        radioButton = (RadioButton) findViewById(R.id.radioButton3);
+        radioButton1 = (RadioButton) findViewById(R.id.radioButton4);
+        radioButton1.setChecked(true);
 
 //        Bundle bundle = getIntent().getExtras();
 //        d1 = bundle.getDouble("Latitude");
@@ -102,6 +105,25 @@ public class Donor_login extends AppCompatActivity {
                 }
                 );
                 requestQueue.add(jsonArrayRequest);
+            }
+        });
+        radioButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Configuration config = new Configuration();
+                Locale locale = new Locale("hi");
+                config.locale = locale;
+                getResources().updateConfiguration(config,null);
+            }
+        });
+
+        radioButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Configuration config = new Configuration();
+                Locale locale = new Locale("en");
+                config.locale = locale;
+                getResources().updateConfiguration(config,null);
             }
         });
     }

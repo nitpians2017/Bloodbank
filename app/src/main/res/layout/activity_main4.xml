@@ -15,68 +15,86 @@
         android:layout_alignStart="@+id/editText"
         android:layout_below="@+id/textView"
         android:layout_marginTop="29dp"
+        android:gravity="center_horizontal"
         android:text="@string/welcome"
-        android:textStyle="bold"
         android:textColor="@color/colorAccent"
         android:textSize="30dp"
-        android:gravity="center_horizontal"
-        />
+        android:textStyle="bold" />
 
     <EditText
-        android:text="mr011@gmail.com"
-        android:layout_marginTop="40dp"
         android:id="@+id/editText"
-        android:layout_below="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="40dp"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
         android:maxLines="1"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:text="mr011@gmail.com" />
 
     <EditText
-        android:text="manish1204"
         android:id="@+id/editText2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/editText"
         android:hint="@string/prompt_password"
         android:imeActionId="@+id/login"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionUnspecified"
         android:inputType="textPassword"
         android:maxLines="1"
-        android:layout_below="@+id/editText"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:text="manish1204" />
 
     <TextView
+        android:id="@+id/forgot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/forgot"
-        android:text="@string/forgot"
-        android:textColor="@android:color/holo_blue_dark"
-        android:gravity="right"
         android:layout_below="@+id/editText2"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:gravity="right"
+        android:text="@string/forgot"
+        android:textColor="@android:color/holo_blue_dark" />
 
     <Button
-        android:layout_margin="10dp"
         android:id="@+id/button9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/action_sign_in"
-        android:textStyle="bold"
         android:layout_below="@+id/forgot"
+        android:layout_margin="10dp"
         android:background="@color/colorAccent"
-        android:textColor="@android:color/white"/>
+        android:text="@string/action_sign_in"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
     <Button
-        android:layout_margin="10dp"
         android:id="@+id/signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/button9"
+        android:layout_margin="10dp"
         android:background="@android:color/holo_blue_dark"
-        android:textColor="@android:color/white"
         android:text="@string/action_sign_up"
-        android:layout_below="@+id/button9"/>
+        android:textColor="@android:color/white" />
 
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signup"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="हिन्दी "
+            />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="English" />
+    </RadioGroup>
 </RelativeLayout>
