@@ -2,7 +2,9 @@ package com.example.rajukumarsingh.bloodbank;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -60,6 +62,13 @@ public class Donor_login extends AppCompatActivity {
                 intent.putExtra("email", email.getText().toString());
                 startActivity(intent);
 
+            }
+        });
+
+        findViewById(R.id.emergency).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startNextActivity();
             }
         });
 
@@ -126,5 +135,37 @@ public class Donor_login extends AppCompatActivity {
                 getResources().updateConfiguration(config,null);
             }
         });
+    }
+
+
+
+    private void startNextActivity(){
+        new com.example.rajukumarsingh.bloodbank.location.LocationCaptureTask(this){
+            @Override
+            public void afterLocationCapture(Location location) {
+                if(location != null){
+                    d1 = location.getLatitude();
+                    d2 = location.getLongitude();
+
+                    Intent i =new Intent(Donor_login.this,Bloodbank_list.class);
+                    i.putExtra("Latitude",d1);
+                    i.putExtra("Longitude",d2);
+                    i.putExtra("src","dashboard");
+
+                    String s3 = Double.toString(d1);
+                    String s4 = Double.toString(d2);
+
+                    SharedPreferences mPrefs = getSharedPreferences("IDvalue", 0);
+                    SharedPreferences.Editor editor = mPrefs.edit();
+                    editor.putString("lo", s3);
+                    editor.putString("la", s4);
+
+                    editor.commit();
+                    startActivity(i);
+                } else{
+                    Toast.makeText(Donor_login.this,R.string.LocationError,Toast.LENGTH_SHORT).show();
+                }
+            }
+        }.execute();
     }
 }

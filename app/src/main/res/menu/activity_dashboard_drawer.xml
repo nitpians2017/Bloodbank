@@ -8,17 +8,17 @@
     <item android:title="Welcome">
         <menu>
             <item
-                android:id="@+id/about"
-                android:icon="@drawable/ic_about"
-                android:title="@string/About" />
+                android:id="@+id/certs"
+                android:icon="@drawable/ic_action_name"
+                android:title="@string/Certificates" />
             <item
                 android:id="@+id/faq"
                 android:icon="@drawable/ic_faq"
                 android:title="@string/FAQs" />
             <item
-                android:id="@+id/certs"
-                android:icon="@drawable/ic_action_name"
-                android:title="@string/Certificates" />
+                android:id="@+id/about"
+                android:icon="@drawable/ic_about"
+                android:title="@string/About" />
             <item
                 android:id="@+id/credits"
                 android:icon="@drawable/ic_credits"

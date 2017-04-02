@@ -100,7 +100,7 @@
     <string name="IaminanEmergency">I am in an Emergency</string>
     <string name="Fetchinglocation">Fetching location...</string>
     <string name="ListofnearbyBloodBanks">List of nearby Blood Banks</string>
-    <string name="Chooseyourdistance">Choose your distance in km: </string>
+    <string name="Chooseyourdistance">Choose distance(KM) </string>
     <string name="SearchByCity">Search By City</string>
     <string name="SMStoemergencycontact">SMS to emergency contact</string>
     <string name="BloodBankName">Blood Bank Name : </string>
