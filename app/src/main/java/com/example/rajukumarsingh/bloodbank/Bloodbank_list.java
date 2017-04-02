@@ -349,7 +349,12 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(Bloodbank_list.this, getResources().getString(R.string.downloading), getResources().getString(R.string.Wait), false, false);
+                try {
+                    loading = ProgressDialog.show(Bloodbank_list.this, getResources().getString(R.string.downloading), getResources().getString(R.string.Wait), false, false);
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
             }
 
             @Override

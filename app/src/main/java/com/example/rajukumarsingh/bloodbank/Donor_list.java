@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -88,11 +89,9 @@ public class Donor_list extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         data = bundle.getString("JSON");
+        Log.d("JSON Response",data);
         try {
             jsonArray = new JSONArray(data);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
         donorArray = new ArrayList<DonorEntity>();
 //        name = new String[jsonArray.length()];
@@ -120,6 +119,13 @@ public class Donor_list extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listview2);
 
         listView.setAdapter(myCustom);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "This feature needs internet! Please check your internet connection.", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
     }
 
     public class MyCustom extends BaseAdapter {
