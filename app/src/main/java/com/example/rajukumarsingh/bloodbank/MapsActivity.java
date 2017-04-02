@@ -64,12 +64,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         d4 = bundle.getDouble("Longitude2");
         len = bundle.getInt("Length");
         Intent in = getIntent();
-        String[] lati = (String[]) in.getSerializableExtra("LatitudeArray");
-        String[] longi = (String[]) in.getSerializableExtra("LongitudeArray");
-        String[] h_name = (String[]) in.getSerializableExtra("HospitalArray");
+        BloodBankEntity[] obj = (BloodBankEntity[]) in.getSerializableExtra("BBEobject");
         for (int i = 0; i <len ; i++){
-            LatLng position = new LatLng(Double.parseDouble(lati[i]),Double.parseDouble(longi[i]));
-            MarkerOptions options = new MarkerOptions().position(position).title(h_name[i]);
+            LatLng position = new LatLng(Double.parseDouble(obj[i].lati),Double.parseDouble(obj[i].longi));
+            MarkerOptions options = new MarkerOptions().position(position).title(obj[i].h_name);
             mMap.addMarker(options);
         }
         sendRequest();

@@ -48,12 +48,11 @@ import java.util.Locale;
 public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     ListView listView;
-    String[] lati, longi, h_name, state, add, pincode, contact, city, AP, AN, ABP, ABN, BP, BN, OP, ON, lati1, longi1, h_name1, state1, add1, pincode1, contact1, city1, AP1, AN1, ABP1, ABN1, BP1, BN1, OP1, ON1;
     GetAllData get;
+    BloodBankEntity[] bloodBankEntity,filteredBloodBankEntity;
     Double d1, d2, d3, d4, d6, d7;
     JSONObject jsonObject;
     JSONArray jsonArray;
-    String[] dist;
     int d5, n = 2;
     Spinner spinner;
     Button search;
@@ -111,15 +110,13 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
                 Intent i = new Intent(Bloodbank_list.this, MapsActivity.class);
                 Double a, b;
 
-                a = Double.parseDouble(lati1[position]);
-                b = Double.parseDouble(longi1[position]);
+                a = Double.parseDouble(filteredBloodBankEntity[position].lati);
+                b = Double.parseDouble(filteredBloodBankEntity[position].longi);
                 i.putExtra("Latitude1", a);
                 i.putExtra("Longitude1", b);
                 i.putExtra("Latitude2", d1);
                 i.putExtra("Longitude2", d2);
-                i.putExtra("LatitudeArray", lati);
-                i.putExtra("LongitudeArray", longi);
-                i.putExtra("HospitalArray", h_name);
+                i.putExtra("BBEobject",bloodBankEntity);
                 i.putExtra("Length", d5);
                 startActivity(i);
             }
@@ -291,43 +288,30 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
         }
 
         public void getAllData() {
-            h_name = new String[jsonArray.length()];
-            state = new String[jsonArray.length()];
-            lati = new String[jsonArray.length()];
-            longi = new String[jsonArray.length()];
-            add = new String[jsonArray.length()];
-            pincode = new String[jsonArray.length()];
-            contact = new String[jsonArray.length()];
-            AP = new String[jsonArray.length()];
-            AN = new String[jsonArray.length()];
-            ABP = new String[jsonArray.length()];
-            ABN = new String[jsonArray.length()];
-            BP = new String[jsonArray.length()];
-            BN = new String[jsonArray.length()];
-            OP = new String[jsonArray.length()];
-            ON = new String[jsonArray.length()];
-            city = new String[jsonArray.length()];
+            bloodBankEntity = new BloodBankEntity[jsonArray.length()];
             d5 = jsonArray.length();
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 try {
                     jsonObject = jsonArray.getJSONObject(i);
-                    h_name[i] = jsonObject.getString("Hospital_Name");
-                    state[i] = jsonObject.getString("State");
-                    lati[i] = jsonObject.getString("Latitude");
-                    longi[i] = jsonObject.getString("Longitude");
-                    add[i] = jsonObject.getString("Address");
-                    contact[i] = jsonObject.getString("Contact_Number");
-                    pincode[i] = jsonObject.getString("Pin_Code");
-                    city[i] = jsonObject.getString("City");
-                    AP[i] = jsonObject.getString("A+");
-                    AN[i] = jsonObject.getString("A-");
-                    ABP[i] = jsonObject.getString("AB+");
-                    ABN[i] = jsonObject.getString("AB-");
-                    BP[i] = jsonObject.getString("B+");
-                    BN[i] = jsonObject.getString("B-");
-                    OP[i] = jsonObject.getString("O+");
-                    ON[i] = jsonObject.getString("O-");
+                    BloodBankEntity entity = new BloodBankEntity();
+                    bloodBankEntity[i] = entity;
+                    bloodBankEntity[i].h_name = jsonObject.getString("Hospital_Name");
+                    bloodBankEntity[i].state = jsonObject.getString("State");
+                    bloodBankEntity[i].lati = jsonObject.getString("Latitude");
+                    bloodBankEntity[i].longi = jsonObject.getString("Longitude");
+                    bloodBankEntity[i].add = jsonObject.getString("Address");
+                    bloodBankEntity[i].contact = jsonObject.getString("Contact_Number");
+                    bloodBankEntity[i].pincode = jsonObject.getString("Pin_Code");
+                    bloodBankEntity[i].city = jsonObject.getString("City");
+                    bloodBankEntity[i].AP = jsonObject.getString("A+");
+                    bloodBankEntity[i].AN = jsonObject.getString("A-");
+                    bloodBankEntity[i].ABP = jsonObject.getString("AB+");
+                    bloodBankEntity[i].ABN = jsonObject.getString("AB-");
+                    bloodBankEntity[i].BP = jsonObject.getString("B+");
+                    bloodBankEntity[i].BN = jsonObject.getString("B-");
+                    bloodBankEntity[i].OP = jsonObject.getString("O+");
+                    bloodBankEntity[i].ON = jsonObject.getString("O-");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -376,57 +360,44 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
     private void calculate() {
         float[] result = new float[2];
         float[] result1 = new float[2];
-        dist = new String[jsonArray.length()];
-        h_name1 = new String[jsonArray.length()];
-        state1 = new String[jsonArray.length()];
-        lati1 = new String[jsonArray.length()];
-        longi1 = new String[jsonArray.length()];
-        add1 = new String[jsonArray.length()];
-        contact1 = new String[jsonArray.length()];
-        pincode1 = new String[jsonArray.length()];
-        city1 = new String[jsonArray.length()];
-        AP1 = new String[jsonArray.length()];
-        AN1 = new String[jsonArray.length()];
-        ABP1 = new String[jsonArray.length()];
-        ABN1 = new String[jsonArray.length()];
-        BP1 = new String[jsonArray.length()];
-        BN1 = new String[jsonArray.length()];
-        OP1 = new String[jsonArray.length()];
-        ON1 = new String[jsonArray.length()];
+
+        filteredBloodBankEntity = new BloodBankEntity[jsonArray.length()];
 
         for (int i = 0; i < jsonArray.length(); i++) {
             if (flag) {
-                d3 = Double.parseDouble(lati[i]);
-                d4 = Double.parseDouble(longi[i]);
+                d3 = Double.parseDouble(bloodBankEntity[i].lati);
+                d4 = Double.parseDouble(bloodBankEntity[i].longi);
                 Location.distanceBetween(d1, d2, d3, d4, result);
 
                 result[0]/=1000;
                 result[0] = Float.parseFloat(new DecimalFormat("####.##").format(result[0]));
 
                 if (result[0] <= n) {
-                    dist[k] = Float.toString(result[0]);
-                    lati1[k] = lati[i];
-                    longi1[k] = longi[i];
-                    h_name1[k] = h_name[i];
-                    state1[k] = state[i];
-                    add1[k] = add[i];
-                    pincode1[k] = pincode[i];
-                    contact1[k] = contact[i];
-                    city1[k] = city[i];
-                    AP1[k] = AP[i];
-                    AN1[k] = AN[i];
-                    ABP1[k] = ABP[i];
-                    ABN1[k] = ABN[i];
-                    BP1[k] = BP[i];
-                    BN1[k] = BN[i];
-                    OP1[k] = OP[i];
-                    ON1[k] = ON[i];
+                    BloodBankEntity entity = new BloodBankEntity();
+                    filteredBloodBankEntity[k] = entity;
+                    filteredBloodBankEntity[k].dist = Float.toString(result[0]);
+                    filteredBloodBankEntity[k].lati = bloodBankEntity[i].lati;
+                    filteredBloodBankEntity[k].longi = bloodBankEntity[i].longi;
+                    filteredBloodBankEntity[k].h_name = bloodBankEntity[i].h_name;
+                    filteredBloodBankEntity[k].state = bloodBankEntity[i].state;
+                    filteredBloodBankEntity[k].add = bloodBankEntity[i].add;
+                    filteredBloodBankEntity[k].pincode = bloodBankEntity[i].pincode;
+                    filteredBloodBankEntity[k].contact = bloodBankEntity[i].contact;
+                    filteredBloodBankEntity[k].city = bloodBankEntity[i].city;
+                    filteredBloodBankEntity[k].AP = bloodBankEntity[i].AP;
+                    filteredBloodBankEntity[k].AN = bloodBankEntity[i].AN;
+                    filteredBloodBankEntity[k].ABP = bloodBankEntity[i].ABP;
+                    filteredBloodBankEntity[k].ABN = bloodBankEntity[i].ABN;
+                    filteredBloodBankEntity[k].BP = bloodBankEntity[i].BP;
+                    filteredBloodBankEntity[k].BN = bloodBankEntity[i].BN;
+                    filteredBloodBankEntity[k].OP = bloodBankEntity[i].OP;
+                    filteredBloodBankEntity[k].ON = bloodBankEntity[i].ON;
                     k++;
                 }
             } else {
 
-                d3 = Double.parseDouble(lati[i]);
-                d4 = Double.parseDouble(longi[i]);
+                d3 = Double.parseDouble(bloodBankEntity[i].lati);
+                d4 = Double.parseDouble(bloodBankEntity[i].longi);
                 Location.distanceBetween(d6, d7, d3, d4, result);
 
                 result[0]/=1000;
@@ -438,23 +409,25 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
                 result1[0] = Float.parseFloat(new DecimalFormat("####.##").format(result1[0]));
 
                 if (result[0] <= n) {
-                    dist[k] = Float.toString(Float.parseFloat(new DecimalFormat("####.##").format(result1[0] + result[0])));
-                    lati1[k] = lati[i];
-                    longi1[k] = longi[i];
-                    h_name1[k] = h_name[i];
-                    state1[k] = state[i];
-                    add1[k] = add[i];
-                    pincode1[k] = pincode[i];
-                    contact1[k] = contact[i];
-                    city1[k] = city[i];
-                    AP1[k] = AP[i];
-                    AN1[k] = AN[i];
-                    ABP1[k] = ABP[i];
-                    ABN1[k] = ABN[i];
-                    BP1[k] = BP[i];
-                    BN1[k] = BN[i];
-                    OP1[k] = OP[i];
-                    ON1[k] = ON[i];
+                    BloodBankEntity entity = new BloodBankEntity();
+                    filteredBloodBankEntity[k] = entity;
+                    filteredBloodBankEntity[k].dist = Float.toString(Float.parseFloat(new DecimalFormat("####.##").format(result1[0] + result[0])));
+                    filteredBloodBankEntity[k].lati = bloodBankEntity[i].lati;
+                    filteredBloodBankEntity[k].longi = bloodBankEntity[i].longi;
+                    filteredBloodBankEntity[k].h_name = bloodBankEntity[i].h_name;
+                    filteredBloodBankEntity[k].state = bloodBankEntity[i].state;
+                    filteredBloodBankEntity[k].add = bloodBankEntity[i].add;
+                    filteredBloodBankEntity[k].pincode = bloodBankEntity[i].pincode;
+                    filteredBloodBankEntity[k].contact = bloodBankEntity[i].contact;
+                    filteredBloodBankEntity[k].city = bloodBankEntity[i].city;
+                    filteredBloodBankEntity[k].AP = bloodBankEntity[i].AP;
+                    filteredBloodBankEntity[k].AN = bloodBankEntity[i].AN;
+                    filteredBloodBankEntity[k].ABP = bloodBankEntity[i].ABP;
+                    filteredBloodBankEntity[k].ABN = bloodBankEntity[i].ABN;
+                    filteredBloodBankEntity[k].BP = bloodBankEntity[i].BP;
+                    filteredBloodBankEntity[k].BN = bloodBankEntity[i].BN;
+                    filteredBloodBankEntity[k].OP = bloodBankEntity[i].OP;
+                    filteredBloodBankEntity[k].ON = bloodBankEntity[i].ON;
                     k++;
                 }
             }
@@ -489,26 +462,26 @@ public class Bloodbank_list extends AppCompatActivity implements AdapterView.OnI
             t2 = (TextView) v.findViewById(R.id.textView2);
             imageView = (ImageView) v.findViewById(R.id.imageButton);
 
-            t1.setText(h_name1[position]);
-            t2.setText(dist[position]);
+            t1.setText(filteredBloodBankEntity[position].h_name);
+            t2.setText(filteredBloodBankEntity[position].dist);
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(Bloodbank_list.this, Blood_bank_details.class);
-                    intent.putExtra("Hospital", h_name1[position]);
-                    intent.putExtra("Address", add1[position]);
-                    intent.putExtra("City", city1[position]);
-                    intent.putExtra("State", state1[position]);
-                    intent.putExtra("Pincode", pincode1[position]);
-                    intent.putExtra("Contact", contact1[position]);
-                    intent.putExtra("AP", AP1[position]);
-                    intent.putExtra("AN", AN1[position]);
-                    intent.putExtra("ABP", ABP1[position]);
-                    intent.putExtra("ABN", ABN1[position]);
-                    intent.putExtra("BP", BP1[position]);
-                    intent.putExtra("BN", BN1[position]);
-                    intent.putExtra("OP", OP1[position]);
-                    intent.putExtra("ON", ON1[position]);
+                    intent.putExtra("Hospital", filteredBloodBankEntity[position].h_name);
+                    intent.putExtra("Address", filteredBloodBankEntity[position].add);
+                    intent.putExtra("City", filteredBloodBankEntity[position].city);
+                    intent.putExtra("State", filteredBloodBankEntity[position].state);
+                    intent.putExtra("Pincode", filteredBloodBankEntity[position].pincode);
+                    intent.putExtra("Contact", filteredBloodBankEntity[position].contact);
+                    intent.putExtra("AP", filteredBloodBankEntity[position].AP);
+                    intent.putExtra("AN", filteredBloodBankEntity[position].AN);
+                    intent.putExtra("ABP", filteredBloodBankEntity[position].ABP);
+                    intent.putExtra("ABN", filteredBloodBankEntity[position].ABN);
+                    intent.putExtra("BP", filteredBloodBankEntity[position].BP);
+                    intent.putExtra("BN", filteredBloodBankEntity[position].BN);
+                    intent.putExtra("OP", filteredBloodBankEntity[position].OP);
+                    intent.putExtra("ON", filteredBloodBankEntity[position].ON);
                     startActivity(intent);
                 }
             });
