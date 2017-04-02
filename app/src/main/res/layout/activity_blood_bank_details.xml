@@ -11,7 +11,7 @@
     tools:context="com.example.rajukumarsingh.bloodbank.Blood_bank_details">
 
     <TextView
-        android:text="BLOOD BANK DETAILS"
+        android:text="@string/Heading"
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
@@ -21,7 +21,7 @@
         android:id="@+id/textView25" />
 
     <TextView
-        android:text="Blood Bank Name:"
+        android:text="@string/BloodBankName"
         android:textSize="18dp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
         android:id="@+id/textView27" />
 
     <TextView
-        android:text="Address:"
+        android:text="@string/Address"
         android:textSize="18dp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
         android:id="@+id/textView28" />
 
     <TextView
-        android:text="State:"
+        android:text="@string/State"
         android:textSize="18dp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
@@ -76,7 +76,7 @@
         android:id="@+id/textView34" />
 
     <TextView
-        android:text="Pincode:"
+        android:text="@string/Pincode"
         android:textSize="18dp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
@@ -97,7 +97,7 @@
         android:id="@+id/textView36" />
 
     <TextView
-        android:text="Contact:"
+        android:text="@string/Contact"
         android:textStyle="bold"
         android:textSize="18dp"
         android:layout_width="wrap_content"
@@ -119,7 +119,7 @@
         android:id="@+id/textView38" />
 
     <TextView
-        android:text="A+ : "
+        android:text="@string/AP"
         android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -140,7 +140,7 @@
         android:id="@+id/textView40" />
 
     <TextView
-        android:text="A- : "
+        android:text="@string/AN"
         android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -160,7 +160,7 @@
         android:id="@+id/textView42" />
 
     <TextView
-        android:text="AB+ : "
+        android:text="@string/ABP"
         android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -180,7 +180,7 @@
         android:id="@+id/textView44" />
 
     <TextView
-        android:text="AB- : "
+        android:text="@string/ABN"
         android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -200,7 +200,7 @@
         android:id="@+id/textView46" />
 
     <TextView
-        android:text="B+ : "
+        android:text="@string/BP"
         android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -220,7 +220,7 @@
         android:id="@+id/textView48" />
 
     <TextView
-        android:text="B- : "
+        android:text="@string/BN"
         android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -240,7 +240,7 @@
         android:id="@+id/textView50" />
 
     <TextView
-        android:text="O+ : "
+        android:text="@string/OP"
         android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -260,7 +260,7 @@
         android:id="@+id/textView52" />
 
     <TextView
-        android:text="O- : "
+        android:text="@string/ON"
         android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -301,7 +301,7 @@
         android:layout_toEndOf="@+id/textView28" />
 
     <TextView
-        android:text="City:"
+        android:text="@string/City"
         android:textStyle="bold"
         android:textSize="18dp"
         android:layout_width="wrap_content"
