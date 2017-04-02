@@ -12,6 +12,8 @@ import android.os.AsyncTask;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
+import com.example.rajukumarsingh.bloodbank.R;
+
 import java.util.List;
 
 
@@ -51,7 +53,7 @@ import java.util.List;
             Log.d(TAG, "inside onPreExecute");
             locationClient.start();
             dialog = new ProgressDialog(context);
-            dialog.setMessage("Fetching location...");
+            dialog.setMessage(context.getResources().getString(R.string.Fetchinglocation));
             dialog.setCanceledOnTouchOutside(true);
             dialog.show();
 

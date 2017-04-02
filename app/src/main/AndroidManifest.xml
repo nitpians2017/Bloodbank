@@ -42,6 +42,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Bloodbank_list"
+            android:label="@string/ListofnearbyBloodBanks"
             android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -109,6 +110,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".FAQ_Activity"
+            android:label="FAQs"
             android:screenOrientation="portrait" />
         <activity
             android:name=".DashboardActivity"
@@ -144,9 +146,9 @@
             android:enabled="true"
             android:exported="false" />
 
-        <receiver android:name=".alarm.PowerButtonReceiver"></receiver>
+        <receiver android:name=".alarm.PowerButtonReceiver" />
 
-        <!--<activity android:name=".DonorListActivity" android:label="@string/DonorList" android:theme="@style/AppTheme"></activity>-->
+        <activity android:name=".About_Activity"></activity>
     </application>
 
 </manifest>

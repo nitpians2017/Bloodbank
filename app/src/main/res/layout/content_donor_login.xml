@@ -138,7 +138,7 @@
                 android:id="@+id/editText31"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Last Blood Donation"
+                android:hint="@string/LastBloodDonation"
                 />
 
 
@@ -147,7 +147,7 @@
                 android:id="@+id/editText32"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Last platelete Donated"
+                android:hint="@string/LastplateleteDonated"
                />
 
 
@@ -199,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:id="@+id/editText36"
-                android:hint="Email"
+                android:hint="@string/Email"
                  />
             </android.support.design.widget.TextInputLayout>
 
@@ -211,7 +211,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="phone"
                 android:id="@+id/editText35"
-                android:hint="Emergency Contact"
+                android:hint="@string/EmergencyContact"
                 />
             </android.support.design.widget.TextInputLayout>
 
@@ -223,7 +223,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="phone"
                 android:id="@+id/editText34"
-                android:hint="Emergency Contact"
+                android:hint="@string/EmergencyContact"
 
                 />
             </android.support.design.widget.TextInputLayout>
@@ -232,7 +232,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <EditText
-                android:hint="Phone Number"
+                android:hint="@string/PhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
@@ -245,10 +245,10 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter the  OTP"
+                    android:hint="@string/EnterOTP"
                     android:id="@+id/otp"/>
                 <Button
-                    android:text="Verify OTP"
+                    android:text="@string/VerifyOTP"
                     android:id="@+id/generate_otp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -264,7 +264,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:id="@+id/editText37"
-                android:hint="Password"
+                android:hint="@string/Password"
                />
             </android.support.design.widget.TextInputLayout>
 

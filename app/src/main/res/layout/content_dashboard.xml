@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@drawable/donor"
-        android:text="I wish to donate"/>
+        android:text="@string/Iwishtodonate"/>
 
 
     <Button
@@ -36,7 +36,7 @@
         android:textStyle="bold"
         android:textSize="20dp"
         android:textColor="#800"
-        android:text="I need blood"/>
+        android:text="@string/Ineedblood"/>
 
 
         <Button
@@ -48,6 +48,6 @@
             android:textSize="20dp"
             android:textColor="#333"
             android:layout_height="100dp"
-            android:text="I am in an Emergency"/>
+            android:text="@string/IaminanEmergency"/>
     </LinearLayout>
 </RelativeLayout>
